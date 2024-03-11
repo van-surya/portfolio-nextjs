@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faCodepen, faHackerrank, faDribbble, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link';
+import { SpanStatus } from "next/dist/trace";
 
 export default function HeroComponent() {
 
@@ -16,12 +17,12 @@ export default function HeroComponent() {
     ];
 
     return (
-        <section className="h-[90vh] flex">
-            <div className="container mx-auto my-auto ">
+        <section className="md:h-[90vh] flex pt-[2rem] pt:md-unset">
+            <div className="container mx-auto my-auto px-[12px] lg:px-none">
                 <div className="grid md:grid-cols-2 gap-[3rem]">
-                    <div className="">
+                    <div className="w-full">
                         <div className="flex relative">
-                            <div className=" hero-image-component w-[540px] h-[540px]">
+                            <div className=" hero-image-component w-[300px] 2xl:w-[540px] h-[300px] 2xl:h-[540px]">
                                 <img className="w-[100%] h-[100%]" src="/assets/images/hero.png" alt="Hero" />
                                 <motion.div
                                     className="circle-wrap"
@@ -43,7 +44,7 @@ export default function HeroComponent() {
                     </div>
                     <div className="flex flex-col justify-center">
                         <motion.h1
-                            className="hero-text text-[11rem]"
+                            className="hero-text text-center md:text-start text-[4rem] 2xl:text-[11rem]"
                             initial={{ opacity: 0, scale: 0.5 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{
@@ -60,20 +61,21 @@ export default function HeroComponent() {
                         >
                             Surya
                         </motion.h1>
-                        <p className="text-[1.5rem] font-thin">
+                        <p className="text-[1.2rem] lg:text-[1.5rem] font-thin text-center md:text-start">
                             Currently focused on Frontend Developer, but exposed in all aspects of web development including Frontend and Backend, UI design
                         </p>
-                        <div className="flex flex-row items-center mt-[1.4rem]">
+                        <div className="flex flex-row items-center mt-[1rem] md:mt-[1.4rem] mx-auto md:mx-unset">
                             <button className="h-[42px] w-[42px] text-slate-900 text-[1.3rem] font-light me-[12px]">
                                 <FontAwesomeIcon icon={faPlay} className="text-primary border p-2 border-primary rounded-full aspect-square hover:text-neutral-50 hover:bg-primary" />
                             </button>
-                            <p className="text-[1.125rem] my-auto">introduction</p>
+                            <p className="text-[1.125rem] my-auto hidden md:block">introduction</p>
                         </div>
                     </div>
                 </div>
-                <div className="mt-[4rem] flex flex-row items-center">
+                <div className="mt-[1.5rem] md:mt-[4rem] flex flex-col md:flex-row items-center">
                     <p className="text-[1.24rem] font-light">Follow Me</p>
-                    <span className="h-[2rem] w-[1px] bg-slate-900 content block mx-[16px]"></span>
+                    <span className="h-[2rem] w-[1px] bg-slate-900 content mx-[16px] hidden md:block" />
+                    <div className="flex flex-row">
                     {socials.map((social, x) => (
                         <motion.div key={x}
                             whileHover={{ scale: 1.2 }}
@@ -84,6 +86,7 @@ export default function HeroComponent() {
                             </Link>
                         </motion.div>
                     ))}
+                    </div>
                 </div>
             </div>
         </section>

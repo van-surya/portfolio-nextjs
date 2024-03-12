@@ -5,6 +5,7 @@ import { faGithub, faCodepen, faHackerrank, faDribbble, faYoutube } from '@forta
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link';
 import { SpanStatus } from "next/dist/trace";
+import Image from 'next/image';
 
 export default function HeroComponent() {
 
@@ -23,7 +24,7 @@ export default function HeroComponent() {
                     <div className="w-full">
                         <div className="flex relative">
                             <div className=" hero-image-component w-[300px] 2xl:w-[540px] h-[300px] 2xl:h-[540px]">
-                                <img className="w-[100%] h-[100%]" src="/assets/images/hero.png" alt="Hero" />
+                                <Image className="w-[100%] h-[100%]" src="/assets/images/hero.png" alt="Hero" width={500} height={500} />
                                 <motion.div
                                     className="circle-wrap"
                                     whileHover={{ scale: 1.2 }}

@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function PortfolioComponent() {
     return (
@@ -36,9 +37,9 @@ export default function PortfolioComponent() {
                     className="Portfolio mt-[3rem]"
                 >
                     {portfolios.map((portfolio, x) => (
-                        <SwiperSlide>
+                        <SwiperSlide key={x}>
                             <div className="card_">
-                                <img className="mb-[1.2rem]" src={portfolio.image} alt={portfolio.title} />
+                                <Image className="mb-[1.2rem]" width={500} height={300} src={portfolio.image} alt={portfolio.title} />
                                 <Link className="text-[1.25rem] font-light text-start hover:text-primary text-neutral-500" href={portfolio.link}>{portfolio.title}</Link>
                             </div>
                         </SwiperSlide>

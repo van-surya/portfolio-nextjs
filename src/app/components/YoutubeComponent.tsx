@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import '../motionslide.scss';
+import Image from 'next/image';
 
 const MAX_TITLE_LENGTH = 40;
 
@@ -58,7 +59,7 @@ export default function YoutubeComponent() {
                 <ul ref={ref}>
                     {videos.map(video => (
                         <li key={video.id.videoId} className='flex flex-col'>
-                            <img className='aspect-[16/9] object-cover w-full mb-[1.2rem]' src={video.snippet.thumbnails.high.url} alt={video.snippet.title} />
+                            <Image className='aspect-[16/9] object-cover w-full mb-[1.2rem]' src={video.snippet.thumbnails.high.url} alt={video.snippet.title} width={500} height={300} />
                             <Link className='text-[1.25rem] text-neutral-500 hover:text-primary font-light' href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">
                                 {truncateText(video.snippet.title)}
                             </Link>

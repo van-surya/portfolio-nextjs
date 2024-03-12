@@ -16,7 +16,7 @@
 
 ul {
     display: flex;
-    list-style: none; 
+    list-style: none;
     overflow-x: scroll;
     padding: 20px 0;
     flex: 0 0 600px;
@@ -40,8 +40,14 @@ ul {
 }
 
 li {
-    flex: 0 0 420px;
     margin: 0 50px 0 0;
+    flex: 0 0 280px;
+    @media (min-width: 768px) {
+        flex: 0 0 280px;
+    }
+    @media (min-width: 1280px) {
+        flex: 0 0 420px;
+    }
     &:last-of-type {
         margin: 0;
     }

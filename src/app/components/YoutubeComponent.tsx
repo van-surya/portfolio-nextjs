@@ -38,9 +38,9 @@ export default function YoutubeComponent() {
     }, []);
 
     return (
-        <section className='py-[6rem]'>
-            <div className="container mx-auto">
-                <div className="flex flex-row items-center justify-between mb-[3rem]">
+        <section className='py-[2rem] lg:pt-[2rem] lg:pb-[3rem] 2xl:py-[6rem]'>
+            <div className="container mx-auto px-[12px] md:px-unset">
+                <div className="flex flex-row items-center justify-between mb-[2rem] xl:mb-[3rem]">
                     <h2 className='text-[2rem] text-neutral-700 font-medium'>DawnScript Channel</h2>
                     <svg id="progress" className='w-[54px] h-[54px]' viewBox="0 0 100 100">
                         <circle cx="50" cy="50" r="30" pathLength="1" className="bg" />

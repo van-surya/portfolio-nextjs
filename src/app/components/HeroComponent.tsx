@@ -18,15 +18,15 @@ export default function HeroComponent() {
     ];
 
     return (
-        <section className="md:h-[90vh] flex pt-[2rem] pt:md-unset">
+        <section className="md:h-[90vh] flex pt-[2rem] md:pt-0 pt:md-unset">
             <div className="container mx-auto my-auto px-[12px] lg:px-none">
                 <div className="grid md:grid-cols-2 gap-[3rem]">
                     <div className="w-full">
-                        <div className="flex relative">
-                            <div className=" hero-image-component w-[300px] 2xl:w-[540px] h-[300px] 2xl:h-[540px]">
+                        <div className="flex relative justify-center">
+                            <div className=" hero-image-component w-[300px] h-[300px] lg:h-[380px] lg:w-[380px] 2xl:h-[540px] 2xl:w-[540px]">
                                 <Image className="w-[100%] h-[100%]" src="/assets/images/hero.png" alt="Hero" width={500} height={500} />
                                 <motion.div
-                                    className="circle-wrap"
+                                    className="circle-wrap w-[140px] h-[140px] right-[12px] bottom-[-3rem] lg:right-[-1.5rem] lg:w-[180px] lg:h-[180px] xl:w-[200px]  xl:h-[200px]  xl:right-[-3rem]"
                                     whileHover={{ scale: 1.2 }}
                                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                 >
@@ -37,7 +37,7 @@ export default function HeroComponent() {
                                                 <textPath xlinkHref="#curve">YEARS OF WORK EXPERIENCE</textPath>
                                             </text>
                                         </svg>
-                                        <h3 className="text-primary">3</h3>
+                                        <h3 className="text-primary text-[4.2rem]">3</h3>
                                     </div>
                                 </motion.div>
                             </div>
@@ -45,7 +45,7 @@ export default function HeroComponent() {
                     </div>
                     <div className="flex flex-col justify-center">
                         <motion.h1
-                            className="hero-text text-center md:text-start text-[4rem] 2xl:text-[11rem]"
+                            className="hero-text text-center md:text-start text-[4rem] md:text-[4.5rem] lg:text-[7rem] xl:text-[10rem] 2xl:text-[11rem]"
                             initial={{ opacity: 0, scale: 0.5 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{
@@ -62,10 +62,10 @@ export default function HeroComponent() {
                         >
                             Surya
                         </motion.h1>
-                        <p className="text-[1.2rem] lg:text-[1.5rem] font-thin text-center md:text-start">
+                        <p className="text-[1.2rem] lg:text-[1.5rem] text-neutral-500 font-thin text-center md:text-start">
                             Currently focused on Frontend Developer, but exposed in all aspects of web development including Frontend and Backend, UI design
                         </p>
-                        <div className="flex flex-row items-center mt-[1rem] md:mt-[1.4rem] mx-auto md:mx-unset">
+                        <div className="flex flex-row items-center mt-[1rem] md:mt-[1.4rem] mx-auto lg:ms-0">
                             <button className="h-[42px] w-[42px] text-slate-900 text-[1.3rem] font-light me-[12px]">
                                 <FontAwesomeIcon icon={faPlay} className="text-primary border p-2 border-primary rounded-full aspect-square hover:text-neutral-50 hover:bg-primary" />
                             </button>

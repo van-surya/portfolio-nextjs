@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
- 
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+
 body {
   background: #fff;
   font-family: "Space Grotesk", sans-serif;
@@ -34,10 +34,6 @@ header {
 
 .hero-image-component .circle-wrap {
   position: absolute;
-  right: -3rem;
-  bottom: -3rem;
-  width: 200px;
-  height: 200px;
   background: #f9f9f9;
   border-radius: 50%;
 }
@@ -52,7 +48,6 @@ header {
   position: absolute;
   left: 50%;
   top: 50%;
-  font-size: 4.2rem;
   transform: translate(-50%, -50%);
   font-weight: 700;
 }
@@ -92,7 +87,10 @@ header {
   align-items: center;
   color: black;
   height: 3rem;
-  line-height: 2rem;
+  line-height: 1rem;
+  @media (min-width: 768px) {
+    line-height: 2rem;
+  }
 }
 
 .sparator:before,

@@ -10,8 +10,8 @@ import Image from 'next/image';
 
 export default function PortfolioComponent() {
     return (
-        <section className="py-[6rem]">
-            <div className="container mx-auto">
+        <section className="py-[1.5rem] lg:py-[3rem] 2xl:py-[6rem]">
+            <div className="container mx-auto px-[12px] md:px-unset">
                 <div className="mx-auto">
                     <h2 className="text-medium font-medium text-[2rem] uppercase">Portfolio</h2>
                 </div>
@@ -34,7 +34,7 @@ export default function PortfolioComponent() {
                     spaceBetween={30}
                     navigation={true}
                     modules={[Navigation]}
-                    className="Portfolio mt-[3rem]"
+                    className="Portfolio mt-[2rem] lg:mt-[3rem]"
                 >
                     {portfolios.map((portfolio, x) => (
                         <SwiperSlide key={x}>

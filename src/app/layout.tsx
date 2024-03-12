@@ -3,12 +3,9 @@ import "./globals.css";
 import "./globals.scss";
 import Favicon from './favicon.png';
 
-export const metadata: Metadata = {
-  // icons: {
-  //   icon: '/favicon.png',
-  // },
+export const metadata: Metadata = { 
   icons: [{ rel: 'icon', url: Favicon.src }],
-  title: "SURYA.DEV",
+  title: "SURYA .DEV",
   description: "Currently focused on Frontend Developer, but exposed in all aspects of web development including frontend and backend, penetration testing, and devops engineer.",
 };
 

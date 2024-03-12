@@ -1,4 +1,4 @@
 import skills from './skills.json';
-// import socials from './socials.json'
+import portfolios from './portfolios.json'
 
-export { skills };
+export { skills, portfolios };

@@ -1,0 +1,48 @@
+#progress {
+    transform: rotate(-90deg);
+    & circle {
+        stroke-dashoffset: 0;
+        stroke-width: 15%;
+        fill: none;
+    }
+    & .bg {
+        stroke: #f9941a;
+        opacity: 0.3;
+    }
+    & .indicator {
+        stroke: #f9941a;
+    }
+}
+
+ul {
+    display: flex;
+    list-style: none; 
+    overflow-x: scroll;
+    padding: 20px 0;
+    flex: 0 0 600px;
+    margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+    background: #fff3;
+    -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #f9941a;
+    -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-corner {
+    background: #fff3;
+}
+
+li {
+    flex: 0 0 420px;
+    margin: 0 50px 0 0;
+    &:last-of-type {
+        margin: 0;
+    }
+}

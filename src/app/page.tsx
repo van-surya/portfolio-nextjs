@@ -13,8 +13,10 @@ import HeroComponent from "./components/HeroComponent";
 import AboutComponent from "./components/AboutComponent";
 import SkillComponent from "./components/SkillComponent";
 import PortfolioComponent from "./components/PortfolioComponent";
+import YoutubeComponent from "./components/YoutubeComponent";
 
 export default function Home() {
+
   const { scrollYProgress } = useScroll();  
   return (
     <>
@@ -32,6 +34,8 @@ export default function Home() {
       <SkillComponent />
 
       <PortfolioComponent />
+
+      <YoutubeComponent />
 
     </>
   );

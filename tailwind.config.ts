@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      aspectRatio: {
+        '16/9': '16 / 9',
+      },
       colors: {
         "transparent": "transparent",
         "primary": "#F9941A"

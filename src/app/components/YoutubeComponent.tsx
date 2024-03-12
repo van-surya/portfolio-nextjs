@@ -57,7 +57,7 @@ export default function YoutubeComponent() {
 
 
                 <ul ref={ref}>
-                    {videos.map(video => (
+                    {videos.map((video: any) => (
                         <li key={video.id.videoId} className='flex flex-col'>
                             <Image className='aspect-[16/9] object-cover w-full mb-[1.2rem]' src={video.snippet.thumbnails.high.url} alt={video.snippet.title} width={500} height={300} />
                             <Link className='text-[1.25rem] text-neutral-500 hover:text-primary font-light' href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">

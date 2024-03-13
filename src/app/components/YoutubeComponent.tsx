@@ -11,8 +11,7 @@ const MAX_TITLE_LENGTH = 40;
 export default function YoutubeComponent() {
     const ref = useRef(null);
     const { scrollXProgress } = useScroll({ container: ref });
-    const [videos, setVideos] = useState([]);
-
+    const [videos, setVideos] = useState([]); 
 
     useEffect(() => {
         const fetchVideos = async () => {
@@ -53,9 +52,7 @@ export default function YoutubeComponent() {
                             style={{ pathLength: scrollXProgress }}
                         />
                     </svg>
-                </div>
-
-
+                </div> 
                 <ul ref={ref}>
                     {videos.map((video: any) => (
                         <li key={video.id.videoId} className='flex flex-col'>
@@ -66,7 +63,6 @@ export default function YoutubeComponent() {
                         </li>
                     ))}
                 </ul>
-
             </div>
         </section>
     );

@@ -1,13 +1,22 @@
-
-import { motion } from "framer-motion";
+"use client";
+import React, { useRef } from "react";
+import { motion, useScroll } from "framer-motion";
 import { skills } from '../data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBrain } from '@fortawesome/free-solid-svg-icons'
 
 export default function SkillComponent() {
-
+    const ref = useRef<HTMLElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["0 1", "1.33 1"],
+    });
     return (
-        <section className="py-[3rem] lg:py-[3rem] 2xl:py-[6rem]">
+        <motion.section className="py-[3rem] lg:py-[3rem] 2xl:py-[6rem]" ref={ref}
+            style={{
+                scale: scrollYProgress,
+                opacity: scrollYProgress
+            }}>
             <div className="container mx-auto px-[12px] lg:px-unset">
                 <div className="flex flex-col w-max	"
                 >
@@ -55,7 +64,7 @@ export default function SkillComponent() {
 
             </div>
 
-        </section>
+        </motion.section>
 
     );
 }

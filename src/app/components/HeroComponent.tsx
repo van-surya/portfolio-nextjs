@@ -8,7 +8,6 @@ import { SpanStatus } from "next/dist/trace";
 import Image from 'next/image';
 
 export default function HeroComponent() {
-
     const socials = [
         { icon: faGithub, link: 'https://github.com/van-surya' },
         { icon: faCodepen, link: 'https://codepen.io/dawnscript' },
@@ -18,12 +17,18 @@ export default function HeroComponent() {
     ];
 
     return (
-        <section className="md:h-[90vh] flex pt-[2rem] md:pt-0 pt:md-unset">
+        <section className="md:h-[100vh] flex pt-[2rem] md:pt-0 pt:md-unset">
             <div className="container mx-auto my-auto px-[12px] lg:px-none">
                 <div className="grid md:grid-cols-2 gap-[3rem]">
                     <div className="w-full">
                         <div className="flex relative justify-center">
-                            <div className=" hero-image-component w-[300px] h-[300px] lg:h-[380px] lg:w-[380px] 2xl:h-[540px] 2xl:w-[540px]">
+                            <motion.div className=" hero-image-component w-[300px] h-[300px] lg:h-[380px] lg:w-[380px] 2xl:h-[540px] 2xl:w-[540px]"
+                                initial={{ y: -10000 }}
+                                animate={{ y: [-10000, 0, 0] }}
+                                transition={{
+                                    duration: "2.8",
+                                    delay: 1
+                                }}>
                                 <Image className="w-[100%] h-[100%]" src="/assets/images/hero.png" alt="Hero" width={500} height={500} />
                                 <motion.div
                                     className="circle-wrap w-[140px] h-[140px] right-[12px] bottom-[-3rem] lg:right-[-1.5rem] lg:w-[180px] lg:h-[180px] xl:w-[200px]  xl:h-[200px]  xl:right-[-3rem]"
@@ -40,55 +45,66 @@ export default function HeroComponent() {
                                         <h3 className="text-primary text-[4.2rem]">3</h3>
                                     </div>
                                 </motion.div>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                     <div className="flex flex-col justify-center">
                         <motion.h1
                             className="hero-text text-center md:text-start text-[4rem] md:text-[4.5rem] lg:text-[7rem] xl:text-[10rem] 2xl:text-[11rem]"
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            animate={{ opacity: 1, scale: 1 }}
+                            initial={{ x: -10000 }}
+                            animate={{ x: [-10000, 0, 0] }}
                             transition={{
-                                duration: 0.3,
-                                ease: [0, 0.71, 0.2, 1.01],
-                                scale: {
-                                    type: "spring",
-                                    damping: 5,
-                                    stiffness: 100,
-                                    restDelta: 0.001
-                                }
+                                duration: "3",
+                                delay: 1
                             }}
-                            whileHover={{ skewX: 25 }}
                         >
                             Surya
                         </motion.h1>
-                        <p className="text-[1.2rem] lg:text-[1.5rem] text-neutral-500 font-thin text-center md:text-start">
+                        <motion.p className="text-[1.2rem] lg:text-[1.5rem] text-neutral-500 font-thin text-center md:text-start"
+                            initial={{ x: -10000 }}
+                            animate={{ x: [-10000, 0, 0] }}
+                            transition={{
+                                duration: "3.2",
+                                delay: 1
+                            }}>
                             Currently focused on Frontend Developer, but exposed in all aspects of web development including Frontend and Backend, UI design
-                        </p>
-                        <div className="flex flex-row items-center mt-[1rem] md:mt-[1.4rem] mx-auto lg:ms-0">
+                        </motion.p>
+                        <motion.div className="flex flex-row items-center mt-[1rem] md:mt-[1.4rem] mx-auto lg:ms-0"
+                            initial={{ x: -10000 }}
+                            animate={{ x: [-10000, 0, 0] }}
+                            transition={{
+                                duration: "3.3",
+                                delay: 1
+                            }}>
                             <button className="h-[42px] w-[42px] text-slate-900 text-[1.3rem] font-light me-[12px]">
                                 <FontAwesomeIcon icon={faPlay} className="text-primary border p-2 border-primary rounded-full aspect-square hover:text-neutral-50 hover:bg-primary" />
                             </button>
                             <p className="text-[1.125rem] my-auto hidden md:block">introduction</p>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
-                <div className="mt-[1.5rem] md:mt-[4rem] flex flex-col md:flex-row items-center">
+                <motion.div className="mt-[1.5rem] md:mt-[4rem] flex flex-col md:flex-row items-center"
+                    initial={{ y: -10000 }}
+                    animate={{ y: [-10000, 0, 0] }}
+                    transition={{
+                        duration: "2.5",
+                        delay: 1
+                    }}>
                     <p className="text-[1.24rem] font-light">Follow Me</p>
                     <span className="h-[2rem] w-[1px] bg-slate-900 content mx-[16px] hidden md:block" />
                     <div className="flex flex-row">
-                    {socials.map((social, x) => (
-                        <motion.div key={x}
-                            whileHover={{ scale: 1.2 }}
-                        >
-                            <Link href={social.link} className="w-[42px] h-[42px] rounded-md shadow-md flex items-center justify-center text-[1.5rem] text-primary border border-transparent hover:border-primary ms-[12px]"
+                        {socials.map((social, x) => (
+                            <motion.div key={x}
+                                whileHover={{ scale: 1.2 }}
                             >
-                                <FontAwesomeIcon icon={social.icon} />
-                            </Link>
-                        </motion.div>
-                    ))}
+                                <Link href={social.link} className="w-[42px] h-[42px] rounded-md shadow-md flex items-center justify-center text-[1.5rem] text-primary border border-transparent hover:border-primary ms-[12px]"
+                                >
+                                    <FontAwesomeIcon icon={social.icon} />
+                                </Link>
+                            </motion.div>
+                        ))}
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

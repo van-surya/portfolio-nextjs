@@ -27,7 +27,7 @@ export default function Home() {
 
       <HeroComponent />
 
-      <div className="sparator h-[3rem] w-full bg-primary mt-[2rem] md:mt-0 md:mt-unset"></div>
+      {/* <div className="sparator h-[3rem] w-full bg-primary mt-[2rem] md:mt-0 md:mt-unset"></div> */}
 
       <AboutComponent />
 

@@ -3,6 +3,8 @@
 body {
   background: #fff;
   font-family: "Space Grotesk", sans-serif;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 header {
@@ -395,3 +397,19 @@ header {
   }
 }
  
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+    background: #fff3;
+    -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #f9941a;
+    -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-corner {
+    background: #fff3;
+}

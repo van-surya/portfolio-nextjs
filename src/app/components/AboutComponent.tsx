@@ -1,65 +1,65 @@
 "use client";
 import React, { useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGear, faMicrochip } from '@fortawesome/free-solid-svg-icons'
-import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
+import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";  
 
-export default function AboutComponent() {  
-    const aboutmes = [
-        { icon: faMicrochip, title: 'EXPERIENCE', desc: '3 Years working' },
-        { icon: faCode, title: 'PROJECTS', desc: '56 Project' },
-        { icon: faGear, title: 'TOOL', desc: 'VsCode, Git, GitBash, Laragon, Figma, Adobe Photoshop, Adobe Ilustrator' },
-    ];
+export default function AboutComponent() {
+    const ref = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["0 1", "1.1 1"]
+    })
+    const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+    const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
+
     return (
-        <section className="py-[6rem] lg:py-[3rem] xl:py-[4rem] 2xl:py-[6rem]"
+        <motion.section className="py-[6rem] lg:py-[3rem] xl:py-[4rem] 2xl:py-[6rem]"
+            ref={ref}
+            style={{
+                scale: scaleProgress,
+                opacity: opacityProgress
+            }}
         >
-            <div className="container mx-auto px-[12px] lg:px-none">
-                <div className="flex flex-col w-max	" >
-                    <div className="relative">
-                        <div className="digital-ball w-[42px] h-[42px] top-[8px] left-0">
-                            <div className="overlay"></div>
-                            <div className="globe">
-                                <div className="globe-wrap">
-                                    <div className="circle"></div>
-                                    <div className="circle"></div>
-                                    <div className="circle"></div>
-                                    <div className="circle-hor"></div>
-                                    <div className="circle-hor-middle"></div>
-                                </div>
-                            </div>
-                        </div>
+            <div className="container mx-auto p-[12px] md:p-unset">
+                <div className="grid grid-cols-2 gap-[2rem] px-[4rem]">
+                    <div className="flex flex-col">
+                        <motion.h2 className="text-[3.2rem] uppercase font-medium"
+                            whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}
+                        >About ME</motion.h2>
+                        <h2 className="text-[2rem] mt-auto">FRONTEND DEVELOPER</h2>
+                        <p className="text-[1.4rem] font-thin">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque modi at fuga enim explicabo. A, quis optio. Enim dolor ratione soluta placeat illum laboriosam esse obcaecati. Deleniti ea reiciendis nulla!
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, aut doloribus. Rem minima eum quas reprehenderit necessitatibus error omnis exercitationem officia. Laudantium sed minima tempore, maxime assumenda doloremque excepturi magni.
+                        </p>
                     </div>
-                    <h2 className="text-[2rem] font-medium text-neutral-800 z-10">About Me</h2>
-                </div>
-
-                <div className="pt-[2rem] md:pt-[3rem] md:ps-[2rem] lg:pt-[1.5rem] border-b border-neutral-500" >
-                    <div className="">
-                        <h3 className="text-[2rem] md:text-[3.5rem] xl:text-[4rem] font-medium">
-                            FRONTEND DEVELOPER
-                        </h3>
-                        <p className="text-[1.125rem] md:text-[1.5rem] lg:text-[1.5rem] xl:text-[2rem] text-neutral-500 font-thin mb-[0.5rem]">I help companies from all over the world with tailor-made solutions.
-                            With each project, I push my work to new horizons, always putting quality first.</p>
-                    </div>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-[2rem]"
-                >
-                    {aboutmes.map((aboutme, x) => (
-                        <div className="border rounded-sm flex flex-col mt-[3.5rem] p-[24px]
-            hover:shadow-lg shadow-md text-neutral-600 hover:text-primary"
-                            key={x}
-                        >
-                            <FontAwesomeIcon icon={aboutme.icon} className="mx-auto text-[2rem] text-primary" />
-                            <h3 className="font-medium text-[1.4rem] uppercase mx-auto mt-[1rem]">{aboutme.title}</h3>
-                            <p className="text-neutral-500 font-medium mx-auto text-center">{aboutme.desc}</p>
-                        </div>
-                    ))}
-
+                    <div className="flex justify-start">
+                        <motion.div className="h-[480px] w-[480px] bg-slate-600 relative overflow-hidden" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
+                            <motion.img className="w-[400px] absolute top-[8px] left-[-120px]"
+                                whileHover={{
+                                    scale: 1,
+                                    transition: { duration: 1 },
+                                    left: '8px'
+                                }}
+                                whileTap={{ left: 0 }}
+                                src="./assets/images/code-1.png" alt="FRONTEND DEVELOPER" />
+                            <FontAwesomeIcon icon={faCode} className="text-primary p-[6px] absolute right-[12px] top-[12px] border-2 border-primary rounded-full w-[42px] h-[42px]" />
+                            <motion.img className="w-[460px] absolute bottom-0 left-[-80px]"
+                                whileHover={{
+                                    scale: 1,
+                                    transition: { duration: 1 },
+                                    left: '12px'
+                                }}
+                                whileTap={{ left: 0 }}
+                                src="./assets/images/code-2.png" alt="FRONTEND DEVELOPER" />
+                        </motion.div>
+                    </div> 
                 </div>
             </div>
 
 
-        </section>
+        </motion.section>
     );
 }
+// I help companies from all over the world with tailor - made solutions.
+//                             With each project, I push my work to new horizons, always putting quality first.

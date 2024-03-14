@@ -14,7 +14,9 @@ const config: Config = {
       },
       colors: {
         "transparent": "transparent",
-        "primary": "#F9941A"
+        "primary": "#F9941A",
+        'likeblack': "#101010",
+        'smoke': "#1d1d1f"
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -79,7 +79,7 @@ export default function HeroComponent() {
                             <button className="h-[42px] w-[42px] text-slate-900 text-[1.3rem] font-light me-[12px]">
                                 <FontAwesomeIcon icon={faPlay} className="text-primary border p-2 border-primary rounded-full aspect-square hover:text-neutral-50 hover:bg-primary" />
                             </button>
-                            <p className="text-[1.125rem] my-auto hidden md:block">introduction</p>
+                            <p className="text-[1.125rem] my-auto hidden md:block text-neutral-500">introduction</p>
                         </motion.div>
                     </div>
                 </div>
@@ -90,14 +90,14 @@ export default function HeroComponent() {
                         duration: "2.5",
                         delay: 1
                     }}>
-                    <p className="text-[1.24rem] font-light">Follow Me</p>
-                    <span className="h-[2rem] w-[1px] bg-slate-900 content mx-[16px] hidden md:block" />
+                    <p className="text-[1.24rem] font-light text-neutral-500">Follow Me</p>
+                    <span className="h-[2rem] w-[1px] bg-neutral-400 content mx-[16px] hidden md:block" />
                     <div className="flex flex-row">
                         {socials.map((social, x) => (
                             <motion.div key={x}
                                 whileHover={{ scale: 1.2 }}
                             >
-                                <Link href={social.link} className="w-[42px] h-[42px] rounded-md shadow-md flex items-center justify-center text-[1.5rem] text-primary border border-transparent hover:border-primary ms-[12px]"
+                                <Link href={social.link} className="w-[42px] h-[42px] rounded-md shadow-md flex items-center justify-center text-[1.5rem] bg-neutral-900 text-primary border border-transparent hover:border-primary ms-[12px]"
                                 >
                                     <FontAwesomeIcon icon={social.icon} />
                                 </Link>

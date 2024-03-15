@@ -20,14 +20,14 @@ export default function HeroComponent() {
         <section className="md:h-[100vh] flex pt-[2rem] md:pt-0 pt:md-unset">
             <div className="container mx-auto my-auto px-[12px] lg:px-none">
                 <div className="grid md:grid-cols-2 gap-[3rem]">
-                    <div className="w-full">
+                    <div className="w-full"> 
                         <div className="flex relative justify-center">
                             <motion.div className=" hero-image-component w-[300px] h-[300px] lg:h-[380px] lg:w-[380px] 2xl:h-[540px] 2xl:w-[540px]"
                                 initial={{ y: -10000 }}
                                 animate={{ y: [-10000, 0, 0] }}
                                 transition={{
-                                    duration: "2.8",
-                                    delay: 1
+                                    duration: "2",
+                                    delay: .5
                                 }}>
                                 <Image className="w-[100%] h-[100%]" src="/assets/images/hero.png" alt="Hero" width={500} height={500} />
                                 <motion.div
@@ -54,8 +54,8 @@ export default function HeroComponent() {
                             initial={{ x: -10000 }}
                             animate={{ x: [-10000, 0, 0] }}
                             transition={{
-                                duration: "3",
-                                delay: 1
+                                duration: "2",
+                                delay: .5
                             }}
                         >
                             Surya
@@ -64,8 +64,8 @@ export default function HeroComponent() {
                             initial={{ x: -10000 }}
                             animate={{ x: [-10000, 0, 0] }}
                             transition={{
-                                duration: "3.2",
-                                delay: 1
+                                duration: "2",
+                                delay: .5
                             }}>
                             Currently focused on Frontend Developer, but exposed in all aspects of web development including Frontend and Backend, UI design
                         </motion.p>
@@ -73,8 +73,8 @@ export default function HeroComponent() {
                             initial={{ x: -10000 }}
                             animate={{ x: [-10000, 0, 0] }}
                             transition={{
-                                duration: "3.3",
-                                delay: 1
+                                duration: "2",
+                                delay: .5
                             }}>
                             <button className="h-[42px] w-[42px] text-slate-900 text-[1.3rem] font-light me-[12px]">
                                 <FontAwesomeIcon icon={faPlay} className="text-primary border p-2 border-primary rounded-full aspect-square hover:text-neutral-50 hover:bg-primary" />
@@ -87,8 +87,8 @@ export default function HeroComponent() {
                     initial={{ y: -10000 }}
                     animate={{ y: [-10000, 0, 0] }}
                     transition={{
-                        duration: "2.5",
-                        delay: 1
+                        duration: "2",
+                        delay: .5
                     }}>
                     <p className="text-[1.24rem] font-light text-neutral-500">Follow Me</p>
                     <span className="h-[2rem] w-[1px] bg-neutral-400 content mx-[16px] hidden md:block" />

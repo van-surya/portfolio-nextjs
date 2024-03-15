@@ -20,16 +20,21 @@ export default function PortfolioComponent() {
             <div className="container mx-auto px-[12px] md:px-unset">
                 <div className="grid grid-cols-2 gap-[2rem] mx-auto mt-[2rem]">
                     <motion.div className="grid grid-cols-2 gap-[1rem]"
-                        initial={{ x: 50, y: 50 }}
-                        whileInView={{ x: [0, -50, 0], y: [0, -50, 0] }}
+                        initial={{ opacity: 0, y: 140 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         transition={{
-                            duration: "2",
+                            duration: ".8",
                             delay: .5
-                        }}>
+                        }} >
                         <div className="row-span-2 h-full mx-auto overflow-hidden bg-likeblack flex">
                             <motion.div className="aspect-[3/4] my-auto"
-                                whileHover={{ scale: [null, 1.2, 1] }}
-                                transition={{ duration: 0.8 }}>
+                                initial={{ opacity: 0, y: 140 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                whileHover={{ scale: .9 }}
+                                transition={{
+                                    duration: ".8",
+                                    delay: .5
+                                }} >
                                 <Link className="" href='https://architect-design.vercel.app/'>
                                     <img src="./assets/images/iphone.png" className="h-full object-cover" alt="" />
                                 </Link>
@@ -37,8 +42,13 @@ export default function PortfolioComponent() {
                         </div>
                         <div className="bg-likeblack overflow-hidden">
                             <motion.div
-                                whileHover={{ scale: [null, .9, 1.2] }}
-                                transition={{ duration: 0.8 }}>
+                                initial={{ opacity: 0, y: 140 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                whileHover={{ scale: 1.2 }}
+                                transition={{
+                                    duration: ".8",
+                                    delay: .5
+                                }} >
                                 <Link className="" href='https://architect-design.vercel.app/'>
                                     <img src="./assets/images/build-co.png" alt="" />
                                 </Link>
@@ -46,8 +56,13 @@ export default function PortfolioComponent() {
                         </div>
                         <div className="bg-likeblack overflow-hidden">
                             <motion.div
-                                whileHover={{ scale: [null, 1, 1.2] }}
-                                transition={{ duration: 0.8 }}>
+                                initial={{ opacity: 0, y: 140 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                whileHover={{ scale: 1.2 }}
+                                transition={{
+                                    duration: ".8",
+                                    delay: .5
+                                }} >
                                 <Link className="" href='https://dawns-landingpage.vercel.app/'>
                                     <img src="./assets/images/lanpage.png" alt="" />
                                 </Link>
@@ -56,19 +71,19 @@ export default function PortfolioComponent() {
                     </motion.div>
                     <div className="flex flex-col">
                         <motion.h2 className="text-[3.2rem] uppercase font-medium text-neutral-500"
-                            initial={{ x: -50, y: -50 }}
-                            whileInView={{ x: [0, 50, 0], y: [0, 50, 0] }}
+                            initial={{ opacity: 0, y: 140 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             transition={{
-                                duration: "2",
+                                duration: ".8",
                                 delay: .5
-                            }}>Portfolio</motion.h2>
+                            }} >Portfolio</motion.h2>
                         <motion.div className=""
-                            initial={{ x: -150, y: -50 }}
-                            whileInView={{ x: [0, 150, 0], y: [0, 50, 0] }}
+                            initial={{ opacity: 0, y: 140 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             transition={{
-                                duration: "2",
+                                duration: ".8",
                                 delay: .5
-                            }}>
+                            }} >
                             <p className="text-[1.4rem] font-thin text-neutral-500">
                                 The combination of my passion for design, code & interaction positions me in a unique place in the web design world.
                             </p>

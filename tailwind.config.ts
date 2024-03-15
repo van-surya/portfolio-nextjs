@@ -11,6 +11,7 @@ const config: Config = {
       aspectRatio: {
         '16/9': '16 / 9',
         '3/4': '3 / 4',
+        '7/5': '7 / 5',
       },
       colors: {
         "transparent": "transparent",

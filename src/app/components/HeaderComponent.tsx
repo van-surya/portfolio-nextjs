@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
+import Link from 'next/link';
 
 export default function HeaderComponent() {
 
@@ -9,7 +10,7 @@ export default function HeaderComponent() {
                 <motion.div className="nav-brand"
                     whileHover={{ scale: 1.2 }}>
                     <h4 className="text-[1.75rem] font-bold text-primary hover:opacity-75 transition delay-150 duration-300 ease-in-out">SURYA</h4>
-                </motion.div>
+                </motion.div> 
             </div>
         </header>
     );

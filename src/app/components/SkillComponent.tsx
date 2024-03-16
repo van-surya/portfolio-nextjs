@@ -56,16 +56,16 @@ export default function SkillComponent() {
                             </div>
                         </div>
                     </div>
-                    <h2 className="text-[2rem] font-medium text-neutral-100 z-10">
+                    <h2 className="text-[2rem] font-medium text-neutral-900 dark:text-neutral-100 z-10">
                         SKILL
                     </h2>
-                    <p className="text-neutral-500 font-thin text-[1.2rem] md:text-[1.4rem]">Technical skill</p>
+                    <p className="text-neutral-800 dark:text-neutral-500 font-thin text-[1.2rem] md:text-[1.4rem]">Technical skill</p>
                 </motion.div>
 
                 <div className="py-[2rem] lg:py-[3rem] xl:ps-[2rem] ">
                     <div className="flex flex-row flex-wrap gap-[1rem] lg:gap-[2rem]">
                         {skills.map((skill, x) => (
-                            <motion.div key={x} className="shadow-lg text-[1rem] md:text-[1.4rem] bg-likeblack font-thin text-neutral-400 py-[8px] px-[12px]"
+                            <motion.div key={x} className="shadow-lg text-[1rem] md:text-[1.4rem] bg-rose text-neutral-100  dark:bg-likeblack font-thin dark:text-neutral-400 py-[8px] px-[12px]"
                                 variants={fadeInAnimationsVariants}
                                 initial="initial"
                                 whileInView="animate"

@@ -1,6 +1,8 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  mode: 'jit',
+  darkMode: 'class',
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -17,7 +19,9 @@ const config: Config = {
         "transparent": "transparent",
         "primary": "#F9941A",
         'likeblack': "#101010",
-        'smoke': "#1d1d1f"
+        'smoke': "#1d1d1f",
+        'sand': "#F1EFEF",
+        'rose': "#999D9E"
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -25,7 +29,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
-  },
+  }, 
   plugins: [],
 };
 export default config;

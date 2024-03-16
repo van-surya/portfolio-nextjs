@@ -21,12 +21,12 @@ export default function AboutComponent() {
     return (
         <section
             id="about"
-            ref={ref} className="pt-[3rem] pb-0 md:py-[2.5rem] md:px-[2.5rem] lg:py-[4rem] xl:py-[6rem] 2xl:py-[8rem] bg-likeblack overflow-hidden "
+            ref={ref} className="pt-[3rem] pb-0 md:py-[2.5rem] md:px-[2.5rem] lg:py-[4rem] xl:py-[6rem] 2xl:py-[8rem] bg-rose dark:bg-likeblack overflow-hidden "
         >
-            <div className="container mx-auto px-[1rem] md:px-0 xl:ml-[3rem] 2xl:mx-[auto] md:bg-smoke overflow-hidden lg:px-[2rem] xl:pl-[3rem] xl:pr-0 2xl:px-[3rem] 2xl:pr-0">
+            <div className="container mx-auto px-[1rem] md:px-0 xl:ml-[3rem] 2xl:mx-[auto] md:bg-sand dark:md:bg-smoke overflow-hidden lg:px-[2rem] xl:pl-[3rem] xl:pr-0 2xl:px-[3rem] 2xl:pr-0">
                 <div className="grid xl:grid-cols-2 xl:gap-[4rem] md:p-[2rem] lg:p-0">
                     <div className="flex flex-col">
-                        <motion.h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3.2rem] uppercase font-medium text-neutral-300 lg:mt-[3rem]"
+                        <motion.h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3.2rem] uppercase font-medium text-neutral-900 dark:text-neutral-300 lg:mt-[3rem]"
                             initial={{ opacity: 0, y: 120 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{
@@ -34,14 +34,14 @@ export default function AboutComponent() {
                                 delay: .5
                             }}
                         >About ME</motion.h2>
-                        <motion.h2 className="text-[1.4rem] md:text-[1.7rem] lg:text-[2rem] mt-[1rem] md:mt-[1.2rem] lg:mt-[auto] text-neutral-400"
+                        <motion.h2 className="text-[1.4rem] md:text-[1.7rem] lg:text-[2rem] mt-[1rem] md:mt-[1.2rem] lg:mt-[auto] text-neutral-800 dark:text-neutral-400"
                             initial={{ opacity: 0, y: 120 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{
                                 duration: ".6",
                                 delay: .5
                             }}  >FRONTEND DEVELOPER</motion.h2>
-                        <motion.p className="text-[1rem] md:text-[1.25rem] lg:text-[1.4rem] font-thin text-neutral-500"
+                        <motion.p className="text-[1rem] md:text-[1.25rem] lg:text-[1.4rem] font-thin text-neutral-700 dark:text-neutral-500"
                             initial={{ opacity: 0, y: 120 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{
@@ -58,15 +58,15 @@ export default function AboutComponent() {
                                 duration: ".8",
                                 delay: .5
                             }} >
-                            <div className="border border-neutral-600 p-[12px] flex flex-col items-center rounded-md">
+                            <div className="border border-neutral-300 dark:border-neutral-600 p-[12px] flex flex-col items-center rounded-md">
                                 <FontAwesomeIcon icon={faCode} className="text-primary h-[28px] w-[28px] border border-primary rounded-full p-[12px] mb-[1rem]" />
-                                <h4 className="text-neutral-400">Experience</h4>
-                                <p className="text-neutral-500">3 Years working</p>
+                                <h4 className="text-neutural-800 dark:text-neutral-400">Experience</h4>
+                                <p className="text-neutral-700 dark:text-neutral-500">3 Years working</p>
                             </div>
-                            <div className="border border-neutral-600 p-[12px] flex flex-col items-center rounded-md">
+                            <div className="border border-neutral-300 dark:border-neutral-600 p-[12px] flex flex-col items-center rounded-md">
                                 <FontAwesomeIcon icon={faSuitcase} className="text-primary h-[28px] w-[28px] border border-primary rounded-full p-[12px] mb-[1rem]" />
-                                <h4 className="text-neutral-400">Projects</h4>
-                                <p className="text-neutral-500">56 Project</p>
+                                <h4 className="text-neutural-800 dark:text-neutral-400">Projects</h4>
+                                <p className="text-neutral-700 dark:text-neutral-500">56 Project</p>
                             </div>
                         </motion.div>
                     </div>

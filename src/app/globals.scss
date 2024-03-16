@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 
 body {
-  background: #1d1d1f;
+  // background: #1d1d1f;
   font-family: "Space Grotesk", sans-serif;
   width: 100%;
   overflow-x: hidden;
@@ -10,9 +10,21 @@ body {
 header {
   z-index: 1001;
   & ul {
-    background: rgba(102, 102, 107, 0.52);
+    background: rgba(153, 157, 158, 0.76);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(13.2px);
+    backdrop-filter: blur(9.4px);
+    -webkit-backdrop-filter: blur(9.4px);
+  }
+}
+
+html.dark {
+  & header {
+    z-index: 1001;
+    & ul {
+      background: rgba(102, 102, 107, 0.52);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(13.2px);
+    }
   }
 }
 
@@ -37,7 +49,6 @@ header {
 
 .hero-image-component .circle-wrap {
   position: absolute;
-  background: #f9f9f9;
   border-radius: 50%;
 }
 
@@ -75,35 +86,6 @@ header {
   transition: all 0.3s ease;
 }
 
-.sparator {
-  display: flex;
-}
-
-.sparator:before,
-.sparator:after {
-  content: "";
-  flex: 1;
-}
-
-.sparator {
-  overflow: hidden;
-  align-items: center;
-  color: black;
-  height: 3rem;
-  line-height: 1rem;
-  @media (min-width: 768px) {
-    line-height: 2rem;
-  }
-}
-
-.sparator:before,
-.sparator:after {
-  background: #fff;
-  padding: 50px 0;
-  height: 0;
-  transform: rotate(45deg);
-}
-
 .line-globe {
   overflow: visible;
   z-index: 5;
@@ -115,7 +97,7 @@ header {
   }
 
   50% {
-    background: #ff4444;
+    background: #f9941a;
   }
 
   100% {
@@ -182,6 +164,71 @@ header {
   }
 }
 
+html.dark {
+  // & .globe-wrap {
+  //   box-shadow: inset 0px 0px 0px 0.125em #1d1d1f !important;
+  // }
+
+  & .globe-wrap {
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotate(30deg);
+    animation: globe 5.4s cubic-bezier(0.35, 0, 0.65, 1) infinite;
+    overflow: hidden;
+    box-shadow: inset 0px 0px 0px 0.125em #1d1d1f;
+  }
+
+  & .globe .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: inset 0.1em 0px 0px 0.08em #1d1d1f;
+    animation: circle2 2.7s linear infinite;
+    font-size: 0.75em;
+  }
+
+  & .globe :nth-child(1) {
+    animation-delay: -1.8s;
+  }
+
+  & .globe :nth-child(2) {
+    animation-delay: -0.9s;
+  }
+
+  & .globe .circle-hor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    height: 55%;
+    box-shadow: inset 0px 0px 0px 0.15em #1d1d1f;
+    font-size: 0.75em;
+  }
+
+  & .globe .circle-hor-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    transform: translate(-50%, -50%);
+    border-radius: 0%;
+    height: 0.15em;
+    background: #1d1d1f;
+    font-size: 0.75em;
+  }
+}
+
 .globe-wrap {
   top: 50%;
   left: 50%;
@@ -193,7 +240,7 @@ header {
   transform: translate(-50%, -50%) rotate(30deg);
   animation: globe 5.4s cubic-bezier(0.35, 0, 0.65, 1) infinite;
   overflow: hidden;
-  box-shadow: inset 0px 0px 0px 0.125em #1d1d1f;
+  box-shadow: inset 0px 0px 0px 0.125em #f1efef;
 }
 
 .globe .circle {
@@ -204,7 +251,7 @@ header {
   height: 100%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  box-shadow: inset 0.1em 0px 0px 0.08em #1d1d1f;
+  box-shadow: inset 0.1em 0px 0px 0.08em #f1efef;
   animation: circle1 2.7s linear infinite;
   font-size: 0.75em;
 }
@@ -212,35 +259,66 @@ header {
 @keyframes circle1 {
   0% {
     border-radius: 50%;
-    box-shadow: inset 0.1em 0px 0px 0.08em #1d1d1f;
+    box-shadow: inset 0.1em 0px 0px 0.08em #f1efef;
     width: 100%;
   }
 
   49% {
     border-radius: 50%;
-    box-shadow: inset 0.1em 0px 0px 0.08em #1d1d1f;
+    box-shadow: inset 0.1em 0px 0px 0.08em #f1efef;
     background: transparent;
   }
 
   50% {
     border-radius: 0%;
     width: 0.175em;
-    background: #1d1d1f;
+    background: #f1efef;
   }
 
   51% {
     border-radius: 50%;
-    box-shadow: inset -0.1em 0px 0px 0.08em #1d1d1f;
+    box-shadow: inset -0.1em 0px 0px 0.08em #f1efef;
     background: transparent;
   }
 
   100% {
     border-radius: 50%;
-    box-shadow: inset -0.1em 0px 0px 0.08em #1d1d1f;
+    box-shadow: inset -0.1em 0px 0px 0.08em #f1efef;
     width: 100%;
   }
 }
 
+@keyframes circle2 {
+  0% {
+    border-radius: 50%;
+    box-shadow: inset 0.1em 0px 0px 0.08em #1d1d1f !important;
+    width: 100%;
+  }
+
+  49% {
+    border-radius: 50%;
+    box-shadow: inset 0.1em 0px 0px 0.08em #1d1d1f !important;
+    background: transparent;
+  }
+
+  50% {
+    border-radius: 0%;
+    width: 0.175em;
+    background: #1d1d1f !important;
+  }
+
+  51% {
+    border-radius: 50%;
+    box-shadow: inset -0.1em 0px 0px 0.08em #1d1d1f !important;
+    background: transparent;
+  }
+
+  100% {
+    border-radius: 50%;
+    box-shadow: inset -0.1em 0px 0px 0.08em #1d1d1f !important;
+    width: 100%;
+  }
+}
 .globe :nth-child(1) {
   animation-delay: -1.8s;
 }
@@ -257,7 +335,7 @@ header {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   height: 55%;
-  box-shadow: inset 0px 0px 0px 0.15em #1d1d1f;
+  box-shadow: inset 0px 0px 0px 0.15em #f1efef;
   font-size: 0.75em;
 }
 
@@ -269,7 +347,7 @@ header {
   transform: translate(-50%, -50%);
   border-radius: 0%;
   height: 0.15em;
-  background: #1d1d1f;
+  background: #f1efef;
   font-size: 0.75em;
 }
 
@@ -412,4 +490,12 @@ header {
 
 ::-webkit-scrollbar-corner {
   background: #fff3;
+}
+.bg-grad {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(153, 157, 158, 0.7539390756302521) 100%);
+}
+html.dark {
+  & .bg-grad {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(16, 16, 16, 1) 100%);
+  }
 }

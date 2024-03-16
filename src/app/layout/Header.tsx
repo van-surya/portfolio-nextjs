@@ -75,7 +75,7 @@ export default function Header() {
         <motion.header className="w-full sticky top-[22px] hidden md:block"
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-        >
+        > 
             <div className="flex justify-center">
                 <ul className="flex py-[4px] px-[12px] items-center gap-[12px] rounded-full">
                     {links.map((link) => (
@@ -87,9 +87,9 @@ export default function Header() {
                         >
                             <Link
                                 className={clsx(
-                                    "flex w-full items-center justify-center px-3 py-3 hover:text-likeblack transition text-neutral-400 font-medium text-[1rem]",
+                                    "flex w-full items-center justify-center px-3 py-3 hover:text-slate-900 dark:hover:text-likeblack transition text-neutral-600 dark:text-neutral-400 font-medium text-[1rem]",
                                     {
-                                        "text-neutral-200 hover:text-neutral-200":
+                                        "text-neutral-900 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-200":
                                             activeSection === link.name,
                                     }
                                 )}
@@ -102,7 +102,7 @@ export default function Header() {
                                 {link.name}
                                 {link.name === activeSection && (
                                     <motion.span
-                                        className="rounded-full absolute inset-0 -z-10 dark:bg-smoke"
+                                        className="rounded-full absolute inset-0 -z-10 bg-sand dark:bg-smoke"
                                         layoutId="activeSection"
                                         transition={{
                                             type: "spring",

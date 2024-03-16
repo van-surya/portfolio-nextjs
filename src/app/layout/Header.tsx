@@ -72,7 +72,7 @@ export default function Header() {
     }, [setActiveSection]);
 
     return (
-        <motion.header className="w-full sticky top-[22px]"
+        <motion.header className="w-full sticky top-[22px] hidden md:block"
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
         >
@@ -87,9 +87,9 @@ export default function Header() {
                         >
                             <Link
                                 className={clsx(
-                                    "flex w-full items-center justify-center px-3 py-3 hover:text-likeblack transition text-neutral-500 font-medium text-[1rem]",
+                                    "flex w-full items-center justify-center px-3 py-3 hover:text-likeblack transition text-neutral-400 font-medium text-[1rem]",
                                     {
-                                        "text-neutral-400 dark:text-neutral-400 hover:text-neutral-400":
+                                        "text-neutral-200 hover:text-neutral-200":
                                             activeSection === link.name,
                                     }
                                 )}

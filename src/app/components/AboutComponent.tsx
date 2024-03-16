@@ -21,12 +21,12 @@ export default function AboutComponent() {
     return (
         <section
             id="about"
-            ref={ref} className="2xl:py-[8rem] bg-likeblack overflow-hidden"
+            ref={ref} className="pt-[3rem] pb-0 md:py-[2.5rem] md:px-[2.5rem] lg:py-[4rem] xl:py-[6rem] 2xl:py-[8rem] bg-likeblack overflow-hidden "
         >
-            <div className="container mx-auto md:p-unset bg-smoke ps-[4rem] overflow-hidden">
-                <div className="grid grid-cols-2 gap-[4rem]">
+            <div className="container mx-auto px-[1rem] md:px-0 xl:ml-[3rem] 2xl:mx-[auto] md:bg-smoke overflow-hidden lg:px-[2rem] xl:pl-[3rem] xl:pr-0 2xl:px-[3rem] 2xl:pr-0">
+                <div className="grid xl:grid-cols-2 xl:gap-[4rem] md:p-[2rem] lg:p-0">
                     <div className="flex flex-col">
-                        <motion.h2 className="text-[3.2rem] uppercase font-medium text-neutral-300 mt-[4rem]"
+                        <motion.h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3.2rem] uppercase font-medium text-neutral-300 lg:mt-[3rem]"
                             initial={{ opacity: 0, y: 120 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{
@@ -34,14 +34,14 @@ export default function AboutComponent() {
                                 delay: .5
                             }}
                         >About ME</motion.h2>
-                        <motion.h2 className="text-[2rem] mt-auto text-neutral-400"
+                        <motion.h2 className="text-[1.4rem] md:text-[1.7rem] lg:text-[2rem] mt-[1rem] md:mt-[1.2rem] lg:mt-[auto] text-neutral-400"
                             initial={{ opacity: 0, y: 120 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{
                                 duration: ".6",
                                 delay: .5
                             }}  >FRONTEND DEVELOPER</motion.h2>
-                        <motion.p className="text-[1.4rem] font-thin text-neutral-500"
+                        <motion.p className="text-[1rem] md:text-[1.25rem] lg:text-[1.4rem] font-thin text-neutral-500"
                             initial={{ opacity: 0, y: 120 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{
@@ -51,7 +51,7 @@ export default function AboutComponent() {
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque modi at fuga enim explicabo. A, quis optio. Enim dolor ratione soluta placeat illum laboriosam esse obcaecati. Deleniti ea reiciendis nulla!
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, aut doloribus. Rem minima eum quas reprehenderit necessitatibus error omnis exercitationem officia. Laudantium sed minima tempore, maxime assumenda doloremque excepturi magni.
                         </motion.p>
-                        <motion.div className="grid grid-cols-2 gap-[2rem] mt-[1.5rem] mb-[4rem]"
+                        <motion.div className="grid md:grid-cols-2 gap-[2rem] mt-[1.5rem] mb-[4rem]"
                             initial={{ opacity: 0, y: 140 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{
@@ -70,7 +70,7 @@ export default function AboutComponent() {
                             </div>
                         </motion.div>
                     </div>
-                    <div className="flex justify-start">
+                    <div className="justify-start md:hidden lg:flex">
                         <motion.div className="h-full w-full overflow-hidden relative"
                             initial={{ opacity: 0, y: 240 }}
                             whileInView={{ opacity: 1, y: 0 }}

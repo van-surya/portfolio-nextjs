@@ -24,12 +24,12 @@ export default function HeroComponent() {
         <section
             ref={ref}
             id="home"
-            className="md:h-[100vh] flex pt-[2rem] md:pt-0 pt:md-unset">
-            <div className="container mx-auto my-auto px-[12px] lg:px-none">
+            className="md:h-[100vh] flex pt-[2rem] md:pt-0 pt:md-unset pb-[3rem] md:pb-0">
+            <div className="container mx-auto my-auto px-[1rem] md:px-[2rem] 2xl:px-[3rem]">
                 <div className="grid md:grid-cols-2 gap-[3rem]">
                     <div className="w-full"> 
                         <div className="flex relative justify-center">
-                            <motion.div className=" hero-image-component w-[300px] h-[300px] lg:h-[380px] lg:w-[380px] 2xl:h-[540px] 2xl:w-[540px]"
+                            <motion.div className=" hero-image-component w-[280px] md:w-[300px] h-[280px] md:h-[300px] lg:h-[380px] lg:w-[380px] 2xl:h-[540px] 2xl:w-[540px]"
                                 initial={{ y: -10000 }}
                                 animate={{ y: [-10000, 0, 0] }}
                                 transition={{
@@ -84,9 +84,9 @@ export default function HeroComponent() {
                                 delay: .5
                             }}>
                             <button className="h-[42px] w-[42px] text-slate-900 text-[1.3rem] font-light me-[12px]">
-                                <FontAwesomeIcon icon={faPlay} className="text-primary border p-2 border-primary rounded-full aspect-square hover:text-neutral-50 hover:bg-primary" />
+                                <FontAwesomeIcon icon={faPlay} className="text-primary border p-2 border-primary rounded-full aspect-square hover:text-smoke hover:bg-primary" />
                             </button>
-                            <p className="text-[1.125rem] my-auto hidden md:block text-neutral-500">introduction</p>
+                            <p className="text-[1.125rem] my-auto hidden md:block text-neutral-400">introduction</p>
                         </motion.div>
                     </div>
                 </div>
@@ -98,13 +98,13 @@ export default function HeroComponent() {
                         delay: .5
                     }}>
                     <p className="text-[1.24rem] font-light text-neutral-500">Follow Me</p>
-                    <span className="h-[2rem] w-[1px] bg-neutral-400 content mx-[16px] hidden md:block" />
-                    <div className="flex flex-row">
+                    <span className="h-[2rem] w-[1px] bg-neutral-500 content mx-[16px] hidden md:block" />
+                    <div className="flex flex-row gap-[12px]">
                         {socials.map((social, x) => (
                             <motion.div key={x}
                                 whileHover={{ scale: 1.2 }}
                             >
-                                <Link href={social.link} className="w-[42px] h-[42px] rounded-md shadow-md flex items-center justify-center text-[1.5rem] bg-neutral-900 text-primary border border-transparent hover:border-primary ms-[12px]"
+                                <Link href={social.link} className="w-[42px] h-[42px] rounded-md shadow-md flex items-center justify-center text-[1.5rem] bg-neutral-900 text-primary border border-transparent hover:border-primary"
                                 >
                                     <FontAwesomeIcon icon={social.icon} />
                                 </Link>

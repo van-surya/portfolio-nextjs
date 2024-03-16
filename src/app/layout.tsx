@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./globals.scss";
 import Favicon from './favicon.png';
+import ActiveSectionContextProvider from "./context/active-section-context";
 
 export const metadata: Metadata = { 
   icons: [{ rel: 'icon', url: Favicon.src }],
@@ -18,7 +19,11 @@ export default function RootLayout({
     <html lang="en">
       <head>
       </head>
-      <body>{children}</body>
+      <body>
+        <ActiveSectionContextProvider>
+          {children}
+        </ActiveSectionContextProvider>
+      </body>
     </html>
   );
 }

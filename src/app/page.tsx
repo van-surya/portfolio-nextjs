@@ -4,25 +4,27 @@ import { SVGProps } from 'react';
 interface TextPathProps extends SVGProps<SVGTextPathElement> {
   xlinkHref: string;
 }
+
 "use client";
 import React from "react";
 import { motion, useScroll } from "framer-motion";
 
-import HeaderComponent from './components/HeaderComponent';
+import Header from './layout/Header';
 import HeroComponent from "./components/HeroComponent";
 import AboutComponent from "./components/AboutComponent";
 import SkillComponent from "./components/SkillComponent";
 import PortfolioComponent from "./components/PortfolioComponent";
 import YoutubeComponent from "./components/YoutubeComponent";
+import Footer from './layout/Footer';
 
 export default function Home() {
 
   const { scrollYProgress } = useScroll();  
   return (
     <>
-      <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} />
+      {/* <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} /> */}
 
-      <HeaderComponent />
+      <Header />
 
 
       <HeroComponent />
@@ -31,11 +33,14 @@ export default function Home() {
 
       <AboutComponent />
 
-      <SkillComponent />
-
       <PortfolioComponent />
 
+      <SkillComponent />
+
+
       {/* <YoutubeComponent /> */}
+
+      <Footer />
 
     </>
   );

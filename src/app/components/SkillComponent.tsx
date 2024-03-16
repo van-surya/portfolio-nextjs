@@ -4,6 +4,7 @@ import { motion, useScroll } from "framer-motion";
 import { skills } from '../data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBrain } from '@fortawesome/free-solid-svg-icons'
+import { useSectionInView } from "../lib/hooks";
 
 const fadeInAnimationsVariants = {
     initial: {
@@ -21,13 +22,17 @@ const fadeInAnimationsVariants = {
 };
 
 export default function SkillComponent() {
-    const ref = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["0 1", "1 1"]
-    })
+    const { ref } = useSectionInView("skill");
+
+    // const ref = useRef<HTMLDivElement>(null);
+    // const { scrollYProgress } = useScroll({
+    //     target: ref,
+    //     offset: ["0 1", "1 1"]
+    // })
     return (
-        <section className="py-[3rem] lg:py-[3rem] 2xl:py-[6rem] relative"  >
+        <section id="skill"
+            ref={ref}
+            className="py-[3rem] lg:py-[3rem] 2xl:py-[6rem] relative"  >
             <div className="container mx-auto px-[12px] lg:px-unset">
                 <motion.div className="flex flex-col w-max	"
                     initial={{ opacity: 0, y: 140 }}

@@ -5,18 +5,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
 import { faSuitcase } from "@fortawesome/free-solid-svg-icons";
 import Link from 'next/link';
+import { useSectionInView } from "../lib/hooks";
 
 export default function AboutComponent() {
-    const ref = useRef<HTMLDivElement>(null);
+    const { ref } = useSectionInView("about");
+
+    /* onst ref = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["0 1", "1 1"]
     })
     const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
     const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
-
+ */
     return (
-        <section className="2xl:py-[8rem] bg-likeblack overflow-hidden"
+        <section
+            id="about"
+            ref={ref} className="2xl:py-[8rem] bg-likeblack overflow-hidden"
         >
             <div className="container mx-auto md:p-unset bg-smoke ps-[4rem] overflow-hidden">
                 <div className="grid grid-cols-2 gap-[4rem]">

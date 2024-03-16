@@ -3,20 +3,24 @@ import React, { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import Link from 'next/link';
 import Image from 'next/image';
+import { useSectionInView } from "../lib/hooks";
 
 export default function PortfolioComponent() {
-    const ref = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["0 1", "1 1"]
-    })
+    const { ref } = useSectionInView("portfolio");
+
+    // const refs = useRef<HTMLDivElement>(null);
+    // const { scrollYProgress } = useScroll({
+    //     target: refs,
+    //     offset: ["0 1", "1 1"]
+    // })
 
     return (
-        <motion.section className="py-[1.5rem] lg:py-[3rem] 2xl:py-[6rem] overflow-hidden"
-            style={{
-                scale: scrollYProgress,
-                opacity: scrollYProgress
-            }}>
+        <motion.section ref={ref} id="portfolio" className="py-[1.5rem] lg:py-[3rem] 2xl:py-[6rem] overflow-hidden"
+        // style={{
+        //     scale: scrollYProgress,
+        //     opacity: scrollYProgress
+        // }}
+        >
             <div className="container mx-auto px-[12px] md:px-unset">
                 <div className="grid grid-cols-2 gap-[2rem] mx-auto mt-[2rem]">
                     <motion.div className="grid grid-cols-2 gap-[1rem]"

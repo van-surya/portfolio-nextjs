@@ -4,10 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faCodepen, faHackerrank, faDribbble, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link';
-import { SpanStatus } from "next/dist/trace";
 import Image from 'next/image';
+import { useSectionInView } from "../lib/hooks";
+import { useActiveSectionContext } from "../context/active-section-context";
 
 export default function HeroComponent() {
+    const { ref } = useSectionInView("Home", 0.5);
+    const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+
     const socials = [
         { icon: faGithub, link: 'https://github.com/van-surya' },
         { icon: faCodepen, link: 'https://codepen.io/dawnscript' },
@@ -17,7 +21,10 @@ export default function HeroComponent() {
     ];
 
     return (
-        <section className="md:h-[100vh] flex pt-[2rem] md:pt-0 pt:md-unset">
+        <section
+            ref={ref}
+            id="home"
+            className="md:h-[100vh] flex pt-[2rem] md:pt-0 pt:md-unset">
             <div className="container mx-auto my-auto px-[12px] lg:px-none">
                 <div className="grid md:grid-cols-2 gap-[3rem]">
                     <div className="w-full"> 
@@ -29,7 +36,7 @@ export default function HeroComponent() {
                                     duration: "2",
                                     delay: .5
                                 }}>
-                                <Image className="w-[100%] h-[100%]" src="/assets/images/hero.png" alt="Hero" width={500} height={500} />
+                                <Image className="w-[100%] h-[100%]" src="/assets/images/hero.png" loading="eager" alt="Hero" width={400} height={400} />
                                 <motion.div
                                     className="circle-wrap w-[140px] h-[140px] right-[12px] bottom-[-3rem] lg:right-[-1.5rem] lg:w-[180px] lg:h-[180px] xl:w-[200px]  xl:h-[200px]  xl:right-[-3rem]"
                                     whileHover={{ scale: 1.2 }}

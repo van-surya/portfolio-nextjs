@@ -6,6 +6,7 @@ import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
 import { faSuitcase } from "@fortawesome/free-solid-svg-icons";
 import Link from 'next/link';
 import { useSectionInView } from "../lib/hooks";
+import Image from "next/image";
 
 export default function AboutComponent() {
     const { ref } = useSectionInView("about");
@@ -93,8 +94,8 @@ export default function AboutComponent() {
                                     duration: ".5",
                                     delay: .5
                                 }}>
-                                <img src="./assets/images/code-1.png" className="rounded-tl-2xl w-full aspect-7/5 "
-                                    alt="Surya Frontend"
+                                <Image src="./assets/images/code-1.png" className="rounded-tl-2xl w-full aspect-7/5 "
+                                    alt="Surya Frontend" width={500} height={500}
                                 />
                             </motion.div>
                             {/* </div> */}

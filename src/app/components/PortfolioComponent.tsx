@@ -40,7 +40,7 @@ export default function PortfolioComponent() {
                                     delay: .5
                                 }} >
                                 <Link className="" href='https://architect-design.vercel.app/'>
-                                    <img src="./assets/images/iphone.png" className="h-full object-cover" alt="" />
+                                    <Image width={400} height={400} src="./assets/images/iphone.png" className="h-full object-cover" alt="" />
                                 </Link>
                             </motion.div>
                         </div>
@@ -54,7 +54,7 @@ export default function PortfolioComponent() {
                                     delay: .5
                                 }} >
                                 <Link className="" href='https://architect-design.vercel.app/'>
-                                    <img src="./assets/images/build-co.png" alt="" />
+                                    <Image width={400} height={400} src="./assets/images/build-co.png" alt="" />
                                 </Link>
                             </motion.div>
                         </div>
@@ -68,7 +68,7 @@ export default function PortfolioComponent() {
                                     delay: .5
                                 }} >
                                 <Link className="" href='https://dawns-landingpage.vercel.app/'>
-                                    <img src="./assets/images/lanpage.png" alt="" />
+                                    <Image width={400} height={400} src="./assets/images/lanpage.png" alt="" />
                                 </Link>
                             </motion.div>
                         </div>
@@ -93,7 +93,7 @@ export default function PortfolioComponent() {
                             </p>
                             <br />
                             <p className="text-[1rem] md:text-[1.25rem] lg:text-[1.4rem] font-thin text-neutral-700 dark:text-neutral-500">
-                                Explore my three designs by clicking on the images, where you'll be directed to each website. Each skill showcases my creativity and expertise in frontend development. Dive in to experience the seamless blend of aesthetics and functionality, crafted to captivate and engage users.
+                                Explore my three designs by clicking on the images, where you&apos;ll be directed to each website. Each skill showcases my creativity and expertise in frontend development. Dive in to experience the seamless blend of aesthetics and functionality, crafted to captivate and engage users.
                             </p>
                         </motion.div>
                     </div>

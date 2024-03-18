@@ -37,8 +37,6 @@ export default function Home() {
       <SkillComponent />
 
 
-      {/* <YoutubeComponent /> */}
-
       <ModeComponent />
       <Footer />
 

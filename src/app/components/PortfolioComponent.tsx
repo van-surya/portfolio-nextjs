@@ -40,7 +40,7 @@ export default function PortfolioComponent() {
                                     delay: .5
                                 }} >
                                 <Link className="" href='https://architect-design.vercel.app/'>
-                                    <Image width={400} height={400} src="./assets/images/iphone.png" className="h-full object-cover" alt="" />
+                                    <Image width={400} height={400} src="/assets/images/iphone.png" className="h-full object-cover" alt="" />
                                 </Link>
                             </motion.div>
                         </div>
@@ -54,7 +54,7 @@ export default function PortfolioComponent() {
                                     delay: .5
                                 }} >
                                 <Link className="" href='https://architect-design.vercel.app/'>
-                                    <Image width={400} height={400} src="./assets/images/build-co.png" alt="" />
+                                    <Image src="/assets/images/build-co.png" width={400} height={400} alt="build-co.png" />
                                 </Link>
                             </motion.div>
                         </div>
@@ -68,7 +68,7 @@ export default function PortfolioComponent() {
                                     delay: .5
                                 }} >
                                 <Link className="" href='https://dawns-landingpage.vercel.app/'>
-                                    <Image width={400} height={400} src="./assets/images/lanpage.png" alt="" />
+                                    <Image width={400} height={400} src="/assets/images/lanpage.png" alt="" />
                                 </Link>
                             </motion.div>
                         </div>

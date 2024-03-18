@@ -94,7 +94,7 @@ export default function AboutComponent() {
                                     duration: ".5",
                                     delay: .5
                                 }}>
-                                <Image src="./assets/images/code-1.png" className="rounded-tl-2xl w-full aspect-7/5 "
+                                <Image src="/assets/images/code-1.png" className="rounded-tl-2xl w-full aspect-7/5 "
                                     alt="Surya Frontend" width={500} height={500}
                                 />
                             </motion.div>

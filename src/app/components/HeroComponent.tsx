@@ -24,15 +24,8 @@ export default function HeroComponent() {
         <section
             ref={ref}
             id="home"
-            className="md:h-[100vh] flex pt-[2rem] md:pt-0 pt:md-unset pb-[3rem] md:pb-0">
-            {/* <div className="absolute top-0 left-[50%] translate-x-[-50%] w-[500px]"> */}
-            {/* <div className="relative">
-                    <div className="w-[400px] h-[400px] bg-red-900 rounded-full blur-3xl"></div>
-                    <div className="w-[300px] h-[400px] bg-red-900 rounded-full blur-3xl"></div>
-                    <div className="w-[300px] h-[400px] bg-red-900 rounded-full blur-3xl"></div>
-                </div> */}
+            className="md:h-[100vh] flex pt-[2rem] md:pt-0 pt:md-unset pb-[3rem] md:pb-0"> 
             <div className="bg-[#F1C27B] absolute top-[-6rem] -z-10 right-[50%] translate-x-[50%] h-[60vh] w-full md:w-[31.25rem] rounded-full blur-[10rem] opacity-35 sm:w-[68.75rem] dark:bg-[#97FEED]"></div>
-            {/* </div> */}
 
             <div className="container mx-auto my-auto px-[1rem] md:px-[2rem] 2xl:px-[3rem]">
                 <div className="grid md:grid-cols-2 gap-[3rem]">

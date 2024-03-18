@@ -5,12 +5,12 @@ import clsx from "clsx";
 import { useActiveSectionContext } from "../context/active-section-context";
 import { links } from '../data';
 
-type FuncType = (...args: any[]) => void; // Tipe untuk func
+type FuncType = (...args: any[]) => void; 
 
 function debounce(func: FuncType, delay: number) {
-    let timeoutId: NodeJS.Timeout; // Tipe untuk timeoutId
+    let timeoutId: NodeJS.Timeout; 
 
-    return function (this: any, ...args: any[]) { // Tipe untuk this ditentukan sebagai any
+    return function (this: any, ...args: any[]) { 
         clearTimeout(timeoutId);
         timeoutId = setTimeout(() => {
             func.apply(this, args);
@@ -23,12 +23,10 @@ export default function Header() {
         useActiveSectionContext();
 
     useEffect(() => {
-        // Function untuk menentukan bagian aktif saat pertama kali render
         const setInitialActiveSection = () => {
             const scrollPosition = window.scrollY;
             const windowHeight = window.innerHeight;
 
-            // Iterasi setiap link dan periksa apakah bagian yang sesuai ada dalam tampilan
             links.forEach(link => {
                 const section = document.querySelector(link.hash);
                 if (section) {
@@ -39,19 +37,15 @@ export default function Header() {
                 }
             });
 
-            // Scroll ke bagian atas halaman saat halaman dirender
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
 
-        // Panggil fungsi untuk menentukan bagian aktif saat pertama kali render
         setInitialActiveSection();
 
-        // Tambahkan event listener scroll
         const handleScroll = debounce(() => {
             const scrollPosition = window.scrollY;
             const windowHeight = window.innerHeight;
 
-            // Iterasi setiap link dan periksa apakah bagian yang sesuai ada dalam tampilan
             links.forEach(link => {
                 const section = document.querySelector(link.hash);
                 if (section) {
@@ -61,12 +55,10 @@ export default function Header() {
                     }
                 }
             });
-        }, 100); // Debounce dengan delay 100 milidetik
+        }, 100);
 
-        // Tambahkan event listener scroll
         window.addEventListener('scroll', handleScroll);
-        return () => {
-            // Hapus event listener scroll saat komponen dibongkar
+        return () => { 
             window.removeEventListener('scroll', handleScroll);
         };
     }, [setActiveSection]);

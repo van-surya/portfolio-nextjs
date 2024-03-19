@@ -1,79 +1,106 @@
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
-import { motion, useScroll } from "framer-motion";
-import '../motionslide.scss';
-import Image from 'next/image';
+import { useSectionInView } from "../lib/hooks";
+import Image from "next/image";
+import Link from "next/link";
 
-const MAX_TITLE_LENGTH = 40;
-
-export default function YoutubeComponent() {
-    const ref = useRef(null);
-    const { scrollXProgress } = useScroll({ container: ref });
-    const [videos, setVideos] = useState([]); 
-
-    useEffect(() => {
-        const fetchVideos = async () => {
-            try {
-                const response = await axios.get(
-                    'https://www.googleapis.com/youtube/v3/search', {
-                    params: {
-                        key: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
-                        part: 'snippet',
-                        channelId: process.env.NEXT_PUBLIC_YOUR_CHANNEL_ID,
-                        maxResults: 20,
-                        order: 'rating',
-                    }
-                }
-                );
-                setVideos(response.data.items);
-            } catch (error) {
-                console.error('Error fetching videos:', error);
-            }
-        };
-
-        fetchVideos();
-    }, []);
+const YoutubeComponent = () => {
+    const { ref } = useSectionInView("youtube");
 
     return (
-        <section className='py-[2rem] lg:pt-[2rem] lg:pb-[3rem] 2xl:py-[6rem]'>
-            <div className="container mx-auto px-[12px] md:px-unset">
-                <div className="flex flex-row items-center justify-between mb-[2rem] xl:mb-[3rem]">
-                    <h2 className='text-[2rem] text-neutral-700 font-medium'>DawnScript Channel</h2>
-                    <svg id="progress" className='w-[54px] h-[54px]' viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="30" pathLength="1" className="bg" />
-                        <motion.circle
-                            cx="50"
-                            cy="50"
-                            r="30"
-                            pathLength="1"
-                            className="indicator"
-                            style={{ pathLength: scrollXProgress }}
-                        />
-                    </svg>
-                </div> 
-                <ul ref={ref}>
-                    {videos.map((video: any) => (
-                        <li key={video.id.videoId} className='flex flex-col'>
-                            <Image className='aspect-[16/9] object-cover w-full mb-[1.2rem]' src={video.snippet.thumbnails.high.url} alt={video.snippet.title} width={500} height={300} />
-                            <Link className='text-[1.25rem] text-neutral-500 hover:text-primary font-light' href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">
-                                {truncateText(video.snippet.title)}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+        <div ref={ref} id="youtube" className="bg-neutral-800">
+            <HorizontalScrollCarousel />
+        </div>
+    );
+};
+
+const HorizontalScrollCarousel = () => {
+    const targetRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: targetRef,
+    });
+
+    const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+
+    return (
+        <section ref={targetRef} className="relative h-[300vh] bg-likeblack">
+            <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+                <motion.div style={{ x }} className="flex gap-4">
+                    {cards.map((card) => {
+                        return <Card card={card} key={card.id} />;
+                    })}
+                </motion.div>
             </div>
         </section>
     );
+};
+interface CardProps {
+    card: {
+        id: number;
+        image: string;
+        title: string;
+        link: string;
+    };
 }
 
-function truncateText(text: string): string {
-    if (text.length <= MAX_TITLE_LENGTH) {
-        return text;
-    } else {
-        const truncatedText = text.substring(0, MAX_TITLE_LENGTH);
-        const lastSpaceIndex = truncatedText.lastIndexOf(' ');
-        return truncatedText.substring(0, lastSpaceIndex) + '...';
-    }
-}
+const Card: React.FC<CardProps> = ({ card }) => {
+    return (
+        <div className="group relative w-[480px] h-[270px] overflow-hidden card_youtube"
+            key={card.id}>
+            <Image src={card.image} width={480} height={270} alt={card.title}
+                className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110" />
+            <div className="card_youtube_body absolute z-10 bottom-0 p-[8px] w-full h-[64px]">
+                <Link href={card.link} className=" text-neutral-100 font-normal text-[1rem]">
+                    {card.title}
+                </Link>
+            </div>
+        </div >
+    );
+};
+
+export default YoutubeComponent;
+
+const cards = [
+    {
+        image: "https://i.ytimg.com/vi/pEx8cdCPsFU/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDr0HKRqOBDP5rflBhYiCCcmDY4hw",
+        title: "Tutorial 1 : Responsive Portfolio Website Design: Learn HTML & CSS by Building Your Own Site",
+        link: "https://www.youtube.com/watch?v=pEx8cdCPsFU&list=PLnClDkXINfCrqIBVh2fLjGssj4QVwi41i&pp=gAQBiAQB",
+        id: 1,
+    },
+    {
+        image: "https://i.ytimg.com/an_webp/uO-FuMAbwyo/mqdefault_6s.webp?du=3000&sqp=CPrV5q8G&rs=AOn4CLDH2jnGNQmdeGFIuYr1hmEoQMAuUA",
+        title: "How to make Slider Card with HTML, CSS, and JavaScript - Step by Step Tutorial",
+        link: "https://www.youtube.com/watch?v=uO-FuMAbwyo",
+        id: 2,
+    },
+    {
+        image: "https://i.ytimg.com/vi/KVlgwi4vggE/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCE0I-xe8UBgW7hUHHbF9QGSFkrqw",
+        title: "Learn How to Make a Stunning Responsive Travel Website with HTML & CSS: Step-by-Step Tutorial",
+        link: "https://www.youtube.com/watch?v=KVlgwi4vggE&list=PLnClDkXINfCr4CBrgHeHLOy9pR7_32-U7",
+        id: 3,
+    },
+    {
+        image: "https://i.ytimg.com/vi/XEf0zCRY0rY/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDFXGs4ByXQUGVCdDj_inhFxdmGXg",
+        title: "How to Create a Stunning Personal Website with HTML & CSS",
+        link: "https://www.youtube.com/watch?v=XEf0zCRY0rY&list=PLnClDkXINfCrOmRZyxUsBsLVQjgS1XWw5&pp=gAQBiAQB",
+        id: 4,
+    },
+    {
+        image: "/imgs/abstract/5.jpg",
+        title: "Title 5",
+        link: "",
+        id: 5,
+    },
+    {
+        image: "/imgs/abstract/6.jpg",
+        title: "Title 6",
+        link: "",
+        id: 6,
+    },
+    {
+        image: "/imgs/abstract/7.jpg",
+        title: "Title 7",
+        link: "",
+        id: 7,
+    },
+];

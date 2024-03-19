@@ -4,7 +4,6 @@ import { SVGProps } from 'react';
 interface TextPathProps extends SVGProps<SVGTextPathElement> {
   xlinkHref: string;
 }
-
 "use client";
 import React from "react";
 import { motion, useScroll } from "framer-motion";
@@ -34,10 +33,12 @@ export default function Home() {
 
       <PortfolioComponent />
 
-      <SkillComponent />
+      <SkillComponent /> 
 
+      <YoutubeComponent />
 
-      <ModeComponent />
+      {/* <ModeComponent /> */}
+
       <Footer />
 
     </>

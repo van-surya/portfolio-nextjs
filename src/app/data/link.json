@@ -14,5 +14,9 @@
     {
         "name": "Skill",
         "hash": "#skill"
+    },
+    {
+        "name": "Youtube",
+        "hash": "#youtube"
     }
 ]

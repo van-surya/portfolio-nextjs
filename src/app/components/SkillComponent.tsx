@@ -2,8 +2,8 @@
 import React, { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import { skills } from '../data';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBrain } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBrain } from '@fortawesome/free-solid-svg-icons';
 import { useSectionInView } from "../lib/hooks";
 
 const fadeInAnimationsVariants = {

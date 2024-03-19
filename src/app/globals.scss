@@ -499,3 +499,19 @@ html.dark {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(16, 16, 16, 1) 100%);
   }
 }
+
+.card_youtube {
+  & .card_youtube_body {
+    display: none;
+    z-index: 10;
+    background: rgba(29, 29, 31, 0.68);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); 
+  }
+  &:hover {
+    & .card_youtube_body {
+      display: block;
+    }
+  }
+}

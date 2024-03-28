@@ -2,11 +2,13 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faCodepen, faHackerrank, faDribbble, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSectionInView } from "../lib/hooks";
 import { useActiveSectionContext } from "../context/active-section-context";
+import ReactHowler from 'react-howler';
+import { useState } from "react";
 
 export default function HeroComponent() {
     const { ref } = useSectionInView("Home", 0.5);
@@ -20,11 +22,19 @@ export default function HeroComponent() {
         { icon: faYoutube, link: 'https://www.youtube.com/@dawnscript?si=n8Qqt9lp8h8m23d_' },
     ];
 
+    const [isPlaying, setIsPlaying] = useState(false);
+    const audioSource = '/assets/introduction.mp3';
+    const [icon, setIcon] = useState(faPlay);
+
+    const handleButtonPlay = () => {
+        setIsPlaying(!isPlaying);
+        setIcon(isPlaying ? faPlay : faPause);
+    };
     return (
         <section
             ref={ref}
             id="home"
-            className="md:h-[100vh] flex pt-[2rem] md:pt-0 pt:md-unset pb-[3rem] md:pb-0"> 
+            className="md:h-[100vh] flex pt-[2rem] md:pt-0 pt:md-unset pb-[3rem] md:pb-0">
             <div className="bg-[#F1C27B] absolute top-[-6rem] -z-10 right-[50%] translate-x-[50%] h-[60vh] w-full md:w-[31.25rem] rounded-full blur-[10rem] opacity-35 sm:w-[68.75rem] dark:bg-[#97FEED]"></div>
 
             <div className="container mx-auto my-auto px-[1rem] md:px-[2rem] 2xl:px-[3rem]">
@@ -85,9 +95,10 @@ export default function HeroComponent() {
                                 duration: "2",
                                 delay: .5
                             }}>
-                            <button className="h-[42px] w-[42px] text-slate-400 dark:text-slate-900 text-[1.3rem] font-light me-[12px]">
-                                <FontAwesomeIcon icon={faPlay} className="text-primary border p-2 border-primary rounded-full aspect-square hover:text-sand dark:hover:text-smoke hover:bg-primary" />
+                            <button onClick={handleButtonPlay} className="h-[42px] w-[42px] text-slate-400 dark:text-slate-900 text-[1.3rem] font-light me-[12px]">
+                                <FontAwesomeIcon icon={icon} className="text-primary border p-2 border-primary rounded-full aspect-square hover:text-sand dark:hover:text-smoke hover:bg-primary" />
                             </button>
+                            <ReactHowler src={audioSource} playing={isPlaying} />
                             <p className="text-[1.125rem] my-auto hidden md:block text-neutral-700 dark:text-neutral-400">introduction</p>
                         </motion.div>
                     </div>

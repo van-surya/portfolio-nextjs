@@ -7,10 +7,8 @@
         @apply dark: #1d1d1f bg-white
     }
 } */
-html {
-    background: #F1EFEF;
-}
 
-html.dark {
+
+html {
     background: #1d1d1f;
 }

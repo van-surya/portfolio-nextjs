@@ -3,7 +3,6 @@ import "./globals.css";
 import "./globals.scss";
 import Favicon from './favicon.png';
 import ActiveSectionContextProvider from "./context/active-section-context";
-import { ThemeProvider } from "next-themes"
 
 export const metadata: Metadata = {
   icons: [{ rel: 'icon', url: Favicon.src }],
@@ -20,12 +19,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
       </head>
-      <body>
-        <ThemeProvider attribute="class">
+      <body> 
           <ActiveSectionContextProvider>
             {children}
-          </ActiveSectionContextProvider>
-        </ThemeProvider>
+        </ActiveSectionContextProvider> 
       </body>
     </html>
   );

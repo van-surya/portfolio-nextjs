@@ -7,7 +7,7 @@ interface TextPathProps extends SVGProps<SVGTextPathElement> {
 "use client";
 import React from "react";
 import { motion, useScroll } from "framer-motion";
-import ModeComponent from "./components/ModeComponent";
+// import ModeComponent from "./components/ModeComponent"; 
 import Header from './layout/Header';
 import HeroComponent from "./components/HeroComponent";
 import AboutComponent from "./components/AboutComponent";

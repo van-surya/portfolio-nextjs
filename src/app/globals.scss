@@ -7,17 +7,17 @@ body {
   overflow-x: hidden;
 }
 
-header {
-  z-index: 1001;
-  & ul {
-    background: rgba(153, 157, 158, 0.76);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(9.4px);
-    -webkit-backdrop-filter: blur(9.4px);
-  }
-}
+// header {
+//   z-index: 1001;
+//   & ul {
+//     background: rgba(153, 157, 158, 0.76);
+//     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+//     backdrop-filter: blur(9.4px);
+//     -webkit-backdrop-filter: blur(9.4px);
+//   }
+// }
 
-html.dark {
+html {
   & header {
     z-index: 1001;
     & ul {
@@ -491,14 +491,12 @@ html.dark {
 ::-webkit-scrollbar-corner {
   background: #fff3;
 }
-.bg-grad {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(153, 157, 158, 0.7539390756302521) 100%);
-}
-html.dark {
-  & .bg-grad {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(16, 16, 16, 1) 100%);
-  }
-}
+
+// html {
+//   & .bg-grad {
+//     background: linear-gradient(5deg, rgba(151, 254, 237, 0.6643032212885154) 0%, rgba(16, 16, 16, 0) 17%);
+//   }
+// }
 
 .card_youtube {
   & .card_youtube_body {
@@ -507,7 +505,7 @@ html.dark {
     background: rgba(29, 29, 31, 0.68);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px);
   }
   &:hover {
     & .card_youtube_body {

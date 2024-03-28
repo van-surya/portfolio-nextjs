@@ -1,4 +1,4 @@
-import { motion, useTransform, useScroll } from "framer-motion";
+import { motion, useTransform, useScroll, Variants } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useSectionInView } from "../lib/hooks";
 import Image from "next/image";
@@ -43,7 +43,7 @@ const HorizontalScrollCarousel = () => {
         }
     }, []);
 
-    const variants = {
+    const variants: Variants = {
         default: {
             x: mousePosition.x - 16,
             y: mousePosition.y - 16,

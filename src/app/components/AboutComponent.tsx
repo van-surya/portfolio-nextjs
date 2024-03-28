@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
 import { faSuitcase } from "@fortawesome/free-solid-svg-icons";
@@ -33,7 +33,7 @@ export default function AboutComponent() {
         }
     }, []);
 
-    const variants = {
+    const variants: Variants = {
         default: {
             x: mousePosition.x - 16,
             y: mousePosition.y - 16,

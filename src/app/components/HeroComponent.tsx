@@ -86,7 +86,7 @@ export default function HeroComponent() {
                                 duration: "2",
                                 delay: .5
                             }}>
-                            Currently focused on Frontend Developer, but exposed in all aspects of web development including Frontend and Backend, UI design
+                            Crafting captivating digital experiences, one line of code at a time. Welcome to my portfolio, where creativity meets functionality. Explore the world of frontend development through my lens.
                         </motion.p>
                         <motion.div className="flex flex-row items-center mt-[1rem] md:mt-[1.4rem] mx-auto lg:ms-0"
                             initial={{ x: -10000 }}

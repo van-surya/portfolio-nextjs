@@ -89,11 +89,11 @@ export default function PortfolioComponent() {
                                 delay: .5
                             }} >
                             <p className="text-[1rem] md:text-[1.25rem] md:mt-[1.4rem] lg:mt-0 lg:text-[1.4rem] font-thin text-neutral-700 dark:text-neutral-500">
-                                The combination of my passion for design, code & interaction positions me in a unique place in the web design world.
+                                The <strong className="text-primary font-semibold">combination</strong> of my passion for design, code & interaction positions me in a unique place in the web design <strong className="text-primary font-semibold">world</strong>.
                             </p>
                             <br />
                             <p className="text-[1rem] md:text-[1.25rem] lg:text-[1.4rem] font-thin text-neutral-700 dark:text-neutral-500">
-                                Explore my three designs by clicking on the images, where you&apos;ll be directed to each website. Each skill showcases my creativity and expertise in frontend development. Dive in to experience the seamless blend of aesthetics and functionality, crafted to captivate and engage users.
+                                <strong className="text-primary font-semibold">Explore</strong> my three designs by <strong className="text-primary font-semibold">clicking</strong> on the images, where you&apos;ll be directed to each website. Each skill showcases my creativity and expertise in frontend development. <strong className="text-primary font-semibold">Dive</strong> in to experience the seamless blend of aesthetics and functionality, crafted to <strong className="text-primary font-semibold">captivate</strong> and engage users.
                             </p>
                         </motion.div>
                     </div>

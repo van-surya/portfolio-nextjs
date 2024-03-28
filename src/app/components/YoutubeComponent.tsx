@@ -1,5 +1,5 @@
 import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useSectionInView } from "../lib/hooks";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,9 +22,51 @@ const HorizontalScrollCarousel = () => {
 
     const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
 
+    const [mousePosition, setMousePosition] = useState({
+        x: 0,
+        y: 0
+    });
+
+    const [cursorVariant, setCursorVariat] = useState("default");
+
+    useEffect(() => {
+        const mouseMove = e => {
+            setMousePosition({
+                x: e.clientX,
+                y: e.clientY,
+            })
+        }
+
+        window.addEventListener("mousemove", mouseMove);
+        return () => {
+            window.removeEventListener("mousemove", mouseMove);
+        }
+    }, []);
+
+    const variants = {
+        default: {
+            x: mousePosition.x - 16,
+            y: mousePosition.y - 16,
+        },
+        text: {
+            height: 150,
+            width: 150,
+            x: mousePosition.x - 76,
+            y: mousePosition.y - 76,
+            backgroundColor: "orange",
+            mixBlendMode: "difference",
+            fontSize: "1.25rem"
+        }
+    }
+
+    const textEnter = () => setCursorVariat("text");
+    const textLeave = () => setCursorVariat("default");
+
+
     return (
         <section ref={targetRef} className="relative h-[300vh] bg-likeblack">
-            <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+            <motion.div className="cursor-yt" variants={variants} animate={cursorVariant}><h5>Youtube</h5></motion.div>
+            <div className="sticky top-0 flex h-screen items-center overflow-hidden" onMouseEnter={textEnter} onMouseLeave={textLeave}>
                 <motion.div style={{ x }} className="flex gap-4">
                     {cards.map((card) => {
                         return <Card card={card} key={card.id} />;

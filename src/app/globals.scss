@@ -498,6 +498,33 @@ html.dark {
 //   }
 // }
 
+.cursor {
+  background-color: #000;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.cursor-yt {
+  background-color: #f9941a;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+  font-size: 0;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
 .card_youtube {
   & .card_youtube_body {
     display: none;

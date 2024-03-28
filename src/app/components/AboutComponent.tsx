@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
@@ -7,25 +7,58 @@ import { faSuitcase } from "@fortawesome/free-solid-svg-icons";
 import Link from 'next/link';
 import { useSectionInView } from "../lib/hooks";
 import Image from "next/image";
+import { constants } from "fs/promises";
 
 export default function AboutComponent() {
     const { ref } = useSectionInView("about");
 
-    /* onst ref = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["0 1", "1 1"]
-    })
-    const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-    const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
- */
+    const [mousePosition, setMousePosition] = useState({
+        x: 0,
+        y: 0
+    });
+
+    const [cursorVariant, setCursorVariat] = useState("default");
+
+    useEffect(() => {
+        const mouseMove = e => {
+            setMousePosition({
+                x: e.clientX,
+                y: e.clientY,
+            })
+        }
+
+        window.addEventListener("mousemove", mouseMove);
+        return () => {
+            window.removeEventListener("mousemove", mouseMove);
+        }
+    }, []);
+
+    const variants = {
+        default: {
+            x: mousePosition.x - 16,
+            y: mousePosition.y - 16,
+        },
+        text: {
+            height: 150,
+            width: 150,
+            x: mousePosition.x - 76,
+            y: mousePosition.y - 76,
+            backgroundColor: "orange",
+            mixBlendMode: "difference"
+        }
+    }
+
+    const textEnter = () => setCursorVariat("text");
+    const textLeave = () => setCursorVariat("default");
+
     return (
         <section
             id="about"
             ref={ref} className="pt-[3rem] pb-0 md:py-[2.5rem] md:px-[2.5rem] lg:py-[4rem] xl:py-[6rem] 2xl:py-[8rem] bg-rose dark:bg-likeblack overflow-hidden "
         >
             <div className="container mx-auto px-[1rem] md:px-0 xl:ml-[3rem] 2xl:mx-[auto] md:bg-sand dark:md:bg-smoke overflow-hidden lg:px-[2rem] xl:pl-[3rem] xl:pr-0 2xl:px-[3rem] 2xl:pr-0">
-                <div className="grid xl:grid-cols-2 xl:gap-[4rem] md:p-[2rem] lg:p-0">
+                <motion.div className="cursor" variants={variants} animate={cursorVariant}> </motion.div>
+                <div className="grid xl:grid-cols-2 xl:gap-[4rem] md:p-[2rem] lg:p-0" onMouseEnter={textEnter} onMouseLeave={textLeave} >
                     <div className="flex flex-col">
                         <motion.h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3.2rem] uppercase font-medium text-neutral-900 dark:text-neutral-300 lg:mt-[3rem]"
                             initial={{ opacity: 0, y: 120 }}

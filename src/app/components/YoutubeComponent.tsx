@@ -30,7 +30,7 @@ const HorizontalScrollCarousel = () => {
     const [cursorVariant, setCursorVariat] = useState("default");
 
     useEffect(() => {
-        const mouseMove = e => {
+        const mouseMove = (e: MouseEvent) => {
             setMousePosition({
                 x: e.clientX,
                 y: e.clientY,

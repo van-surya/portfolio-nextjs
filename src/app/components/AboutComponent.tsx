@@ -57,7 +57,7 @@ export default function AboutComponent() {
             ref={ref} className="pt-[3rem] pb-0 md:py-[2.5rem] md:px-[2.5rem] lg:py-[4rem] xl:py-[6rem] 2xl:py-[8rem] bg-rose dark:bg-likeblack overflow-hidden "
         >
             <div className="container mx-auto px-[1rem] md:px-0 xl:ml-[3rem] 2xl:mx-[auto] md:bg-sand dark:md:bg-smoke overflow-hidden lg:px-[2rem] xl:pl-[3rem] xl:pr-0 2xl:px-[3rem] 2xl:pr-0">
-                <motion.div className="cursor" variants={variants} animate={cursorVariant}> </motion.div>
+                <motion.div className="cursor hidden lg:block" variants={variants} animate={cursorVariant}> </motion.div>
                 <div className="grid xl:grid-cols-2 xl:gap-[4rem] md:p-[2rem] lg:p-0" onMouseEnter={textEnter} onMouseLeave={textLeave} >
                     <div className="flex flex-col">
                         <motion.h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3.2rem] uppercase font-medium text-neutral-900 dark:text-neutral-300 lg:mt-[3rem]"

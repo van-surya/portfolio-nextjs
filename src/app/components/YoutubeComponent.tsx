@@ -65,7 +65,7 @@ const HorizontalScrollCarousel = () => {
 
     return (
         <section ref={targetRef} className="relative h-[300vh] bg-likeblack">
-            <motion.div className="cursor-yt" variants={variants} animate={cursorVariant}><h5>Youtube</h5></motion.div>
+            <motion.div className="cursor-yt hidden lg:flex" variants={variants} animate={cursorVariant}><h5>Youtube</h5></motion.div>
             <div className="sticky top-0 flex h-screen items-center overflow-hidden" onMouseEnter={textEnter} onMouseLeave={textLeave}>
                 <motion.div style={{ x }} className="flex gap-4">
                     {cards.map((card) => {

@@ -5,7 +5,8 @@ interface TextPathProps extends SVGProps<SVGTextPathElement> {
   xlinkHref: string;
 }
 "use client";
-import React from "react";
+import { useState, useEffect } from 'react';
+
 import { motion, useScroll } from "framer-motion";
 // import ModeComponent from "./components/ModeComponent"; 
 import Header from './layout/Header';
@@ -17,30 +18,55 @@ import YoutubeComponent from "./components/YoutubeComponent";
 import Footer from './layout/Footer';
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
 
-  const { scrollYProgress } = useScroll();  
+  useEffect(() => {
+    // Menunggu beberapa detik (misalnya 2 detik) untuk simulasi loading
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Setelah beberapa detik, loading selesai
+    }, 1000);
+
+    // Membersihkan timer saat komponen dibongkar
+    return () => clearTimeout(timer);
+  }, []); // useEffect hanya dijalankan sekali setelah render pertama
+
+
+  const { scrollYProgress } = useScroll();
   return (
-    <>
-      {/* <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} /> */}
+    <div>
+      {isLoading ? (
+        <div className="loading-screen bg-smoke flex flex-col h-[100vh] overflow-hidden">
+          <div className="icon">
+            <div className="headphone"></div>
+          </div>
+          <p className="text-center text-neutral-200 text-[1.375rem] uppercase">For a better experience</p>
+          <p className="text-center text-neutral-400 text-[1.125rem]">open this website on a desktop browser and use headphones.</p>
+        </div>
+      ) : (
+          <>
+            {/* <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} /> */}
 
-      <Header /> 
+            <Header />
 
-      <HeroComponent />
+            <HeroComponent />
 
-      {/* <div className="sparator h-[3rem] w-full bg-primary mt-[2rem] md:mt-0 md:mt-unset"></div> */}
+            {/* <div className="sparator h-[3rem] w-full bg-primary mt-[2rem] md:mt-0 md:mt-unset"></div> */}
 
-      <AboutComponent />
+            <AboutComponent />
 
-      <PortfolioComponent />
+            <PortfolioComponent />
 
-      <SkillComponent /> 
+            <SkillComponent />
 
-      <YoutubeComponent />
+            <YoutubeComponent />
 
-      {/* <ModeComponent /> */}
+            {/* <ModeComponent /> */}
 
-      <Footer />
+            <Footer />
+          </>
+      )
+      }
+    </div >
 
-    </>
   );
 }

@@ -1,9 +1,7 @@
 "use client";
-import React, { useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { skills } from '../data';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBrain } from '@fortawesome/free-solid-svg-icons';
 import { useSectionInView } from "../lib/hooks";
 
 const fadeInAnimationsVariants = {
@@ -24,11 +22,6 @@ const fadeInAnimationsVariants = {
 export default function SkillComponent() {
     const { ref } = useSectionInView("skill");
 
-    // const ref = useRef<HTMLDivElement>(null);
-    // const { scrollYProgress } = useScroll({
-    //     target: ref,
-    //     offset: ["0 1", "1 1"]
-    // })
     return (
         <section id="skill"
             ref={ref}
@@ -61,7 +54,6 @@ export default function SkillComponent() {
                     </h2>
                     <p className="text-neutral-800 dark:text-neutral-500 font-thin text-[1.2rem] md:text-[1.4rem]">Technical skill</p>
                 </motion.div>
-
                 <div className="py-[2rem] lg:py-[3rem] xl:ps-[2rem] ">
                     <div className="flex flex-row flex-wrap gap-[1rem] lg:gap-[2rem]">
                         {skills.map((skill, x) => (
@@ -76,7 +68,6 @@ export default function SkillComponent() {
                         ))}
                     </div>
                 </div>
-
             </div>
 
         </section >

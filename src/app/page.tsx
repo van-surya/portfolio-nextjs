@@ -1,5 +1,3 @@
-// import React from 'react';
-import Image from "next/image";
 import { SVGProps } from 'react';
 interface TextPathProps extends SVGProps<SVGTextPathElement> {
   xlinkHref: string;
@@ -7,8 +5,6 @@ interface TextPathProps extends SVGProps<SVGTextPathElement> {
 "use client";
 import { useState, useEffect } from 'react';
 
-import { motion, useScroll } from "framer-motion";
-// import ModeComponent from "./components/ModeComponent"; 
 import Header from './layout/Header';
 import HeroComponent from "./components/HeroComponent";
 import AboutComponent from "./components/AboutComponent";
@@ -28,7 +24,6 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  const { scrollYProgress } = useScroll();
   return (
     <div>
       {isLoading ? (
@@ -41,24 +36,12 @@ export default function Home() {
         </div>
       ) : (
           <>
-            {/* <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} /> */}
-
             <Header />
-
             <HeroComponent />
-
-            {/* <div className="sparator h-[3rem] w-full bg-primary mt-[2rem] md:mt-0 md:mt-unset"></div> */}
-
             <AboutComponent />
-
             <PortfolioComponent />
-
             <SkillComponent />
-
             <YoutubeComponent />
-
-            {/* <ModeComponent /> */}
-
             <Footer />
           </>
       )

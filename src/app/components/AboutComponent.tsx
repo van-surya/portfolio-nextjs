@@ -1,13 +1,11 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
 import { faSuitcase } from "@fortawesome/free-solid-svg-icons";
-import Link from 'next/link';
 import { useSectionInView } from "../lib/hooks";
-import Image from "next/image";
-import { constants } from "fs/promises";
+import Image from "next/image"; 
 
 export default function AboutComponent() {
     const { ref } = useSectionInView("about");
@@ -82,7 +80,7 @@ export default function AboutComponent() {
                                 duration: ".7",
                                 delay: .5
                             }} >
-                            Hi i'am <strong className="text-primary font-semibold"> Surya</strong>, a seasoned frontend developer with three years of experience crafting stunning <strong className="text-primary font-semibold">digital experiences</strong>. With a keen eye for detail and a passion for user-centric design, I specialize in creating seamless frontend solutions that captivate and delight users. Let's embark on a <strong className="text-primary font-semibold">journey</strong> where every click leads to an enhanced user interface and a memorable digital journey.     </motion.p>
+                            Hi i'am <strong className="text-primary font-semibold"> Surya</strong>, a seasoned frontend developer with three years of experience crafting stunning <strong className="text-primary font-semibold">digital experiences</strong>. With a keen eye for detail and a passion for user-centric design, I specialize in creating seamless frontend solutions that captivate and delight users. Let's embark on a <strong className="text-primary font-semibold">journey</strong> where every click leads to an enhanced user interface and a memorable digital journey.</motion.p>
                         <motion.div className="grid md:grid-cols-2 gap-[2rem] mt-[1.5rem] mb-[4rem]"
                             initial={{ opacity: 0, y: 140 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -109,16 +107,7 @@ export default function AboutComponent() {
                             transition={{
                                 duration: ".5",
                                 delay: .5
-                            }} >
-                            {/* <motion.div className=" h-full absolute top-[4rem] right-[-240px]"
-                                whileHover={{ top: 0, right: 0 }}
-                                transition={{
-                                    duration: ".5",
-                                    delay: .5
-                                }}
-                            > */}
-                            {/* <Link href="https://github.com/van-surya"> */}
-                            {/* <div className="absolute top-[4rem] right-[-240px]"> */}
+                            }} > 
                             <motion.div className="absolute w-[100%] bottom-[0] right-[-4rem]"
                                 whileHover={{ bottom: 0, right: 0 }}
                                 transition={{
@@ -128,39 +117,11 @@ export default function AboutComponent() {
                                 <Image src="/assets/images/code-1.png" className="rounded-tl-2xl w-full aspect-7/5 "
                                     alt="Surya Frontend" width={500} height={500}
                                 />
-                            </motion.div>
-                            {/* </div> */}
-                            {/* </Link> */}
-                            {/* </motion.div> */}
-                        </motion.div>
-
-                        {/* <motion.div className="aspect-square rounded-full my-auto overflow-hidde bg relative w-full"
-                            initial={{ opacity: 0, y: 130 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{
-                                duration: "2",
-                                delay: .5
-                            }}
-                        > */}
-
-                        {/* <motion.div className="w-[80%] absolute top-0 left-0 " drag
-                                dragConstraints={{
-                                    top: -80,
-                                    left: 0,
-                                    right: 0,
-                                    bottom: 0,
-                                }} >
-                                <img src="./assets/images/bot.png" className="w-full bg-white" alt="Surya Frontend"
-                                /></motion.div> */}
-
-                        {/* </motion.div> */}
+                            </motion.div> 
+                        </motion.div> 
                     </div>
                 </div>
-            </div>
-
-
+            </div> 
         </section >
     );
-}
-// I help companies from all over the world with tailor - made solutions.
-//                             With each project, I push my work to new horizons, always putting quality first.
+} 

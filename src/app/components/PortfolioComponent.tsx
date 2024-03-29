@@ -1,25 +1,14 @@
 "use client";
-import React, { useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSectionInView } from "../lib/hooks";
 
 export default function PortfolioComponent() {
-    const { ref } = useSectionInView("portfolio");
-
-    // const refs = useRef<HTMLDivElement>(null);
-    // const { scrollYProgress } = useScroll({
-    //     target: refs,
-    //     offset: ["0 1", "1 1"]
-    // })
-
+    const { ref } = useSectionInView("portfolio"); 
     return (
-        <motion.section ref={ref} id="portfolio" className="py-[1.5rem] lg:py-[3rem] 2xl:py-[6rem] overflow-hidden"
-        // style={{
-        //     scale: scrollYProgress,
-        //     opacity: scrollYProgress
-        // }}
+        <motion.section ref={ref} id="portfolio" className="py-[1.5rem] lg:py-[3rem] 2xl:py-[6rem] overflow-hidden" 
         >
             <div className="container mx-auto px-[1rem] md:px-[2rem] 2xl:px-[3rem]">
                 <div className="grid lg:grid-cols-2 lg:gap-[2rem] mx-auto mt-[2rem]">

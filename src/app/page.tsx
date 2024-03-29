@@ -36,8 +36,8 @@ export default function Home() {
           <div className="icon">
             <div className="headphone"></div>
           </div>
-          <p className="text-center text-neutral-200 text-[1.375rem] uppercase">For a better experience</p>
-          <p className="text-center text-neutral-400 text-[1.125rem]">open this website on a desktop browser and use headphones.</p>
+          <p className="text-center px-3 md:px-0 text-neutral-200 text-[1.375rem] uppercase">For a better experience</p>
+          <p className="text-center px-3 md:px-0 text-neutral-400 text-[1.125rem]">open this website on a desktop browser and use headphones.</p>
         </div>
       ) : (
           <>

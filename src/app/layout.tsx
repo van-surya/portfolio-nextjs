@@ -6,7 +6,7 @@ import ActiveSectionContextProvider from "./context/active-section-context";
 
 export const metadata: Metadata = {
   icons: [{ rel: 'icon', url: Favicon.src }],
-  title: "SURYA .DEV",
+  title: "SURYA - DEV",
   description: "Currently focused on Frontend Developer, but exposed in all aspects of web development including frontend and backend, penetration testing, and devops engineer.",
 };
 

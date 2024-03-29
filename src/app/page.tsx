@@ -21,15 +21,12 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Menunggu beberapa detik (misalnya 2 detik) untuk simulasi loading
     const timer = setTimeout(() => {
-      setIsLoading(false); // Setelah beberapa detik, loading selesai
-    }, 1000);
+      setIsLoading(false);
+    }, 4000);
 
-    // Membersihkan timer saat komponen dibongkar
     return () => clearTimeout(timer);
-  }, []); // useEffect hanya dijalankan sekali setelah render pertama
-
+  }, []);
 
   const { scrollYProgress } = useScroll();
   return (

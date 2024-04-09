@@ -1,5 +1,5 @@
 
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faCodepen, faHackerrank, faDribbble, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
@@ -9,10 +9,21 @@ import { useSectionInView } from "../lib/hooks";
 import { useActiveSectionContext } from "../context/active-section-context";
 import ReactHowler from 'react-howler';
 import { useState } from "react";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 export default function HeroComponent() {
     const { ref } = useSectionInView("Home", 0.5);
     const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+
+    const { scrollYProgress } = useScroll();
+    const x = useTransform(scrollYProgress, [0, 1], [0, 8000]);
+
+    const backgroundColor = useTransform(
+        scrollYProgress,
+        [0, 0.1],
+        ['#ffe3bb', '#1D1D1F']
+    );
+
 
     const socials = [
         { icon: faGithub, link: 'https://github.com/van-surya' },
@@ -34,8 +45,9 @@ export default function HeroComponent() {
         <section
             ref={ref}
             id="home"
-            className="md:h-[100vh] flex pt-[2rem] md:pt-0 pt:md-unset pb-[3rem] md:pb-0">
-            <div className="bg-[#F1C27B] absolute top-[-6rem] -z-10 right-[50%] translate-x-[50%] h-[60vh] w-full md:w-[31.25rem] rounded-full blur-[10rem] opacity-35 sm:w-[68.75rem] dark:bg-[#97FEED]"></div>
+            className="lg:h-[100vh] flex pt-[2rem] md:pt-0 pt:md-unset pb-[3rem] md:pb-[2rem] lg:pb-0">
+
+            <motion.div style={{ x }} className="bg-[#F1C27B] absolute top-[-6rem] -z-10 left-[-6rem] translate-x-[50%] h-[60vh] w-full md:w-[31.25rem] rounded-full blur-[10rem] opacity-35 sm:w-[68.75rem] dark:bg-[#97FEED]"></motion.div>
 
             <div className="container mx-auto my-auto px-[1rem] md:px-[2rem] 2xl:px-[3rem]">
                 <div className="grid md:grid-cols-2 gap-[3rem]">
@@ -47,7 +59,9 @@ export default function HeroComponent() {
                                 transition={{
                                     duration: "2",
                                     delay: .5
-                                }}>
+                                }}
+                                style={{ backgroundColor }}
+                            >
                                 <Image className="w-[100%] h-[100%]" src="/assets/images/hero.png" loading="eager" alt="Hero" width={400} height={400} />
                                 <motion.div
                                     className="circle-wrap bg-smoke dark:bg-neutral-200 w-[140px] h-[140px] right-[12px] bottom-[-3rem] lg:right-[-1.5rem] lg:w-[180px] lg:h-[180px] xl:w-[200px]  xl:h-[200px]  xl:right-[-3rem]"

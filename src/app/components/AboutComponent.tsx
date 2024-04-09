@@ -1,11 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, useScroll, useTransform } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode } from "@fortawesome/free-solid-svg-icons/faCode";
 import { faSuitcase } from "@fortawesome/free-solid-svg-icons";
 import { useSectionInView } from "../lib/hooks";
-import Image from "next/image"; 
+import Image from "next/image";
+import { useMediaQuery } from 'react-responsive';
 
 export default function AboutComponent() {
     const { ref } = useSectionInView("about");
@@ -14,6 +15,24 @@ export default function AboutComponent() {
         x: 0,
         y: 0
     });
+
+    const is1023px = useMediaQuery({ maxWidth: 1023 });
+    const is1024px = useMediaQuery({ maxWidth: 1024 });
+    const is1280px = useMediaQuery({ maxWidth: 1280 });
+    const is1536px = useMediaQuery({ maxWidth: 1536 });
+    const is1920px = useMediaQuery({ maxWidth: 1920 });
+
+    const { scrollYProgress } = useScroll();
+
+    const x = useTransform(
+        scrollYProgress,
+        [0, 1],
+        [
+            is1023px ? 0 : is1024px ? 5 : is1280px ? 10 : is1536px ? 15 : is1920px ? 20 : 0, // Nilai awal x
+            is1023px ? 0 : is1024px ? 200 : is1280px ? 300 : is1536px ? 400 : is1920px ? 550 : 0 // Nilai akhir x
+        ]
+    );
+    // const movement = useTransform(scrollYProgress, [0, 1], [0, 8000]);
 
     const [cursorVariant, setCursorVariat] = useState("default");
 
@@ -54,7 +73,7 @@ export default function AboutComponent() {
             id="about"
             ref={ref} className="pt-[3rem] pb-0 md:py-[2.5rem] md:px-[2.5rem] lg:py-[4rem] xl:py-[6rem] 2xl:py-[8rem] bg-rose dark:bg-likeblack overflow-hidden "
         >
-            <div className="container mx-auto px-[1rem] md:px-0 xl:ml-[3rem] 2xl:mx-[auto] md:bg-sand dark:md:bg-smoke overflow-hidden lg:px-[2rem] xl:pl-[3rem] xl:pr-0 2xl:px-[3rem] 2xl:pr-0">
+            <motion.div style={{ x }} className="container mx-auto px-[1rem] md:px-0 xl:ml-[3rem] 2xl:mx-[auto] md:bg-sand dark:md:bg-smoke overflow-hidden lg:px-[2rem] xl:pl-[3rem] xl:pr-0 2xl:px-[3rem] 2xl:pr-0">
                 <motion.div className="cursor hidden lg:block" variants={variants} animate={cursorVariant}> </motion.div>
                 <div className="grid xl:grid-cols-2 xl:gap-[4rem] md:p-[2rem] lg:p-0" onMouseEnter={textEnter} onMouseLeave={textLeave} >
                     <div className="flex flex-col">
@@ -107,7 +126,7 @@ export default function AboutComponent() {
                             transition={{
                                 duration: ".5",
                                 delay: .5
-                            }} > 
+                            }} >
                             <motion.div className="absolute w-[100%] bottom-[0] right-[-4rem]"
                                 whileHover={{ bottom: 0, right: 0 }}
                                 transition={{
@@ -117,11 +136,11 @@ export default function AboutComponent() {
                                 <Image src="/assets/images/code-1.png" className="rounded-tl-2xl w-full aspect-7/5 "
                                     alt="Surya Frontend" width={500} height={500}
                                 />
-                            </motion.div> 
-                        </motion.div> 
+                            </motion.div>
+                        </motion.div>
                     </div>
                 </div>
-            </div> 
+            </motion.div>
         </section >
     );
 } 

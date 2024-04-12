@@ -1,110 +1,20 @@
-import { motion, useTransform, useScroll, Variants } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import React from "react";
 import { useSectionInView } from "../lib/hooks";
 import Image from "next/image";
 import Link from "next/link";
 
-const YoutubeComponent = () => {
-    const { ref } = useSectionInView("youtube");
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import '../swiper.css';
+import 'swiper/css/effect-creative';
+import { Autoplay, EffectCreative, Pagination } from 'swiper/modules';
+import { useMediaQuery } from 'react-responsive';
 
-    return (
-        <div ref={ref} id="youtube" className="bg-neutral-800">
-            <HorizontalScrollCarousel />
-        </div>
-    );
-};
-
-const HorizontalScrollCarousel = () => {
-    const targetRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: targetRef,
-    });
-
-    const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
-
-    const [mousePosition, setMousePosition] = useState({
-        x: 0,
-        y: 0
-    });
-
-    const [cursorVariant, setCursorVariat] = useState("default");
-
-    useEffect(() => {
-        const mouseMove = (e: MouseEvent) => {
-            setMousePosition({
-                x: e.clientX,
-                y: e.clientY,
-            })
-        }
-
-        window.addEventListener("mousemove", mouseMove);
-        return () => {
-            window.removeEventListener("mousemove", mouseMove);
-        }
-    }, []);
-
-    const variants: Variants = {
-        default: {
-            x: mousePosition.x - 16,
-            y: mousePosition.y - 16,
-        },
-        text: {
-            height: 150,
-            width: 150,
-            x: mousePosition.x - 76,
-            y: mousePosition.y - 76,
-            backgroundColor: "orange",
-            mixBlendMode: "difference",
-            fontSize: "1.25rem"
-        }
-    }
-
-    const textEnter = () => setCursorVariat("text");
-    const textLeave = () => setCursorVariat("default");
-
-
-    return (
-        <section ref={targetRef} className="relative h-[300vh] bg-likeblack">
-            <motion.div className="cursor-yt hidden lg:flex" variants={variants} animate={cursorVariant}><h5>Youtube</h5></motion.div>
-            <div className="sticky top-0 flex h-screen items-center overflow-hidden" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-                <motion.div style={{ x }} className="flex gap-4">
-                    {cards.map((card) => {
-                        return <Card card={card} key={card.id} />;
-                    })}
-                </motion.div>
-            </div>
-        </section>
-    );
-};
-interface CardProps {
-    card: {
-        id: number;
-        image: string;
-        title: string;
-        link: string;
-    };
-}
-
-const Card: React.FC<CardProps> = ({ card }) => {
-    return (
-        <div className="group relative w-[480px] h-[270px] overflow-hidden card_youtube"
-            key={card.id}>
-            <Image src={card.image} width={480} height={270} alt={card.title}
-                className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110" />
-            <div className="card_youtube_body absolute z-10 bottom-0 p-[8px] w-full h-[64px]">
-                <Link href={card.link} className=" text-neutral-100 font-normal text-[1rem]">
-                    {card.title}
-                </Link>
-            </div>
-        </div >
-    );
-};
-
-export default YoutubeComponent;
-
-const cards = [
+const youtubes = [
     {
-        image: "https://i.ytimg.com/vi/pEx8cdCPsFU/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDr0HKRqOBDP5rflBhYiCCcmDY4hw",
+        image: "/assets/images/yt01.jpg",
         title: "Tutorial 1 : Responsive Portfolio Website Design: Learn HTML & CSS by Building Your Own Site",
         link: "https://www.youtube.com/watch?v=pEx8cdCPsFU&list=PLnClDkXINfCrqIBVh2fLjGssj4QVwi41i&pp=gAQBiAQB",
         id: 1,
@@ -116,13 +26,13 @@ const cards = [
         id: 2,
     },
     {
-        image: "https://i.ytimg.com/vi/KVlgwi4vggE/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCE0I-xe8UBgW7hUHHbF9QGSFkrqw",
+        image: "/assets/images/yt02.jpg",
         title: "Learn How to Make a Stunning Responsive Travel Website with HTML & CSS: Step-by-Step Tutorial",
         link: "https://www.youtube.com/watch?v=KVlgwi4vggE&list=PLnClDkXINfCr4CBrgHeHLOy9pR7_32-U7",
         id: 3,
     },
     {
-        image: "https://i.ytimg.com/vi/XEf0zCRY0rY/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDFXGs4ByXQUGVCdDj_inhFxdmGXg",
+        image: "/assets/images/yt03.jpg",
         title: "How to Create a Stunning Personal Website with HTML & CSS",
         link: "https://www.youtube.com/watch?v=XEf0zCRY0rY&list=PLnClDkXINfCrOmRZyxUsBsLVQjgS1XWw5&pp=gAQBiAQB",
         id: 4,
@@ -146,3 +56,84 @@ const cards = [
         id: 7,
     },
 ];
+
+
+const whileInView = {
+    opacity: 1, x: 0, y: 0
+};
+
+
+const YoutubeComponent = () => {
+    const { ref } = useSectionInView("youtube");
+
+    const is767px = useMediaQuery({ maxWidth: 767 });
+    const is768px = useMediaQuery({ maxWidth: 768 });
+    const is1024px = useMediaQuery({ maxWidth: 1024 });
+
+    const initialRight = {
+        opacity: 0,
+        x: is767px ? 0 : is768px ? 0 : (is1024px ? -180 : -180),
+        y: is767px ? 0 : is768px ? 120 : (is1024px ? -180 : -180)
+    };
+
+    const initialLeft = {
+        opacity: 0,
+        x: is767px ? 0 : (is768px ? 0 : (is1024px ? 180 : 180)),
+        y: is767px ? 0 : (is768px ? 120 : (is1024px ? -180 : -180))
+    };
+
+    return (
+        <div ref={ref} id="youtube" className="bg-neutral-800 py-[6rem]">
+            <div className="container mx-auto px-[1rem] md:px-[2rem] 2xl:px-[3rem]">
+                <h2 className="text-[1.75rem] md:text-[2.5rem] lg:text-[3.2rem] uppercase font-medium text-neutral-800 dark:text-neutral-300 md:mt-[2rem] lg:mt-0">Youtube Channel</h2>
+                <div className="2xl:px-[5rem]">
+                    <Swiper
+                        grabCursor={true}
+                        effect={'creative'}
+                        loop={true}
+                        creativeEffect={{
+                            prev: {
+                                shadow: true,
+                                translate: ['-120%', 0, -500],
+                            },
+                            next: {
+                                shadow: true,
+                                translate: ['120%', 0, -500],
+                            },
+                        }}
+                        autoplay={{
+                            delay: 5000,
+                            disableOnInteraction: false,
+                        }}
+                        modules={[Autoplay, EffectCreative]} className="Swiper">
+                        {youtubes.map((youtube, items) =>
+                            <SwiperSlide className="bg-transparent flex items-center" key={items}>
+                                <div className="pt-[1.5rem] md:pb-0 md:p-[5rem] lg:p-[6.5rem] lg:pt-[1.5rem] xl:p-[7rem] xl:pt-[2rem] 2xl:p-[8rem]">
+                                    <Image className="rounded-2xl" src={youtube.image} alt={youtube.title} width={1200} height={1000}></Image>
+                                </div>
+                                <motion.div className={` bg-neutral-700 bottom-0 mt-[-2rem] mb-[0.5rem] md:mb-[1rem] mt:lg-[unset] mx-auto lg:mx-[unset] relative lg:absolute z-20 ${items % 2 === 0 ? 'lg:right-[5rem]' : 'lg:left-[5rem]'} p-[22px] xl:p-[32px] rounded-t-none md:rounded-t-2xl rounded-2xl xl:rounded-3xl flex flex-col items-start  md:h-[140px] h-[240px] w-full md:w-[640px] lg:w-[300px] lg:h-[300px] xl:w-[320px] xl:h-[340px]`}
+                                    initial={items % 2 === 0 ? initialRight : initialLeft}
+                                    whileInView={whileInView}
+                                    transition={{
+                                        duration: ".8",
+                                        delay: .8
+                                    }}
+                                >
+                                    <h3 className="text-start text-slate-200 md:text-[1.3rem] xl:text-[1.375rem] xl:mt-[2rem] font-light">
+                                        {youtube.title}
+                                    </h3>
+                                    <Link className="bg-smoke py-[6px] px-[32px] mb-[0.75rem] md:mb-0 ms-auto mt-auto text-slate-200 hover:text-slate-50 rounded-2xl font-light" href={youtube.link}>
+                                        Let's Go
+                                    </Link>
+                                </motion.div>
+                            </SwiperSlide>
+                        )}
+                    </Swiper>
+                </div>
+            </div>
+        </div >
+    );
+};
+
+
+export default YoutubeComponent;

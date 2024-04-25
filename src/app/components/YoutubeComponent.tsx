@@ -123,7 +123,7 @@ const YoutubeComponent = () => {
                                         {youtube.title}
                                     </h3>
                                     <Link className="bg-smoke py-[6px] px-[32px] mb-[0.75rem] md:mb-0 ms-auto mt-auto text-slate-200 hover:text-slate-50 rounded-2xl font-light" href={youtube.link}>
-                                        Let's Go
+                                        Let`s Go
                                     </Link>
                                 </motion.div>
                             </SwiperSlide>

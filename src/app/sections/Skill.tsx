@@ -19,7 +19,7 @@ const fadeInAnimationsVariants = {
     }),
 };
 
-export default function SkillComponent() {
+export default function Skill() {
     const { ref } = useSectionInView("skill");
 
     return (
@@ -33,7 +33,7 @@ export default function SkillComponent() {
                     transition={{
                         duration: ".5",
                         delay: .05
-                    }} 
+                    }}
                 >
                     <div className="relative">
                         <div className="digital-ball w-[42px] h-[42px] top-[8px] left-0">

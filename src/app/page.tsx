@@ -6,11 +6,11 @@ interface TextPathProps extends SVGProps<SVGTextPathElement> {
 import { useState, useEffect } from 'react';
 
 import Header from './layout/Header';
-import HeroComponent from "./components/HeroComponent";
-import AboutComponent from "./components/AboutComponent";
-import SkillComponent from "./components/SkillComponent";
-import PortfolioComponent from "./components/PortfolioComponent";
-import { YoutubeComponent } from "./components/YoutubeComponent";
+import About from './sections/About';
+import Hero from "./sections/Hero";
+import Skill from "./sections/Skill";
+import Portfolio from "./sections/Portfolio";
+import Gallery from "./sections/Gallery";
 import Footer from './layout/Footer';
 
 export default function Home() {
@@ -37,13 +37,11 @@ export default function Home() {
       ) : (
           <>
             <Header />
-            <HeroComponent />
-            <AboutComponent />
-            <PortfolioComponent />
-            <SkillComponent />
-            <section id='youtube' className="h-full md:h-screen">
-            <YoutubeComponent />
-            </section>
+            <Hero />
+            <About />
+            <Portfolio />
+            <Skill />
+            <Gallery />
             <Footer />
           </>
       )

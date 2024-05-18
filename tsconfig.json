@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/YoutubeComponent.js", "src/app/components/CardYoutube.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/YoutubeComponent.js", "src/app/components/CardYoutube.js", "src/app/components/Card.js", , "src/app/components/Rig.js""src/app/components/Banner.js", "src/app/utils/gallery.tsx"],
   "exclude": ["node_modules"]
 }

@@ -11,7 +11,7 @@ import ReactHowler from 'react-howler';
 import { useState } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 
-export default function HeroComponent() {
+export default function Hero() {
     const { ref } = useSectionInView("Home", 0.5);
     const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 

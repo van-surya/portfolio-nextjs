@@ -8,7 +8,7 @@ import { useSectionInView } from "../lib/hooks";
 import Image from "next/image";
 import { useMediaQuery } from 'react-responsive';
 
-export default function AboutComponent() {
+export default function About() {
     const { ref } = useSectionInView("about");
 
     const [mousePosition, setMousePosition] = useState({
@@ -29,7 +29,7 @@ export default function AboutComponent() {
         [0, 1],
         [
             is1023px ? 0 : is1024px ? 5 : is1280px ? 10 : is1536px ? 15 : is1920px ? 20 : 0,
-            is1023px ? 0 : is1024px ? 200 : is1280px ? 300 : is1536px ? 400 : is1920px ? 550 : 0   
+            is1023px ? 0 : is1024px ? 200 : is1280px ? 300 : is1536px ? 400 : is1920px ? 550 : 0
         ]
     );
     // const movement = useTransform(scrollYProgress, [0, 1], [0, 8000]);

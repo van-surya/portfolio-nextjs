@@ -5,6 +5,8 @@ body {
   font-family: "Space Grotesk", sans-serif;
   width: 100%;
   overflow-x: hidden;
+  cursor: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMCIgZmlsbD0iI0U4QjA1OSIvPjwvc3ZnPg=="),
+    auto;
 }
 
 // header {
@@ -359,7 +361,7 @@ html {
 
 .swiper-slide {
   text-align: center;
-  font-size: 18px; 
+  font-size: 18px;
 
   display: flex;
   justify-content: center;
@@ -509,4 +511,39 @@ html {
   z-index: 2;
 }
 
- 
+svg {
+  fill: black;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#youtube {
+  & ::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+    background: transparent;
+    -webkit-border-radius: 0;
+  }
+
+  // ::-webkit-scrollbar-thumb {
+  //   background: #f9941a;
+  //   -webkit-border-radius: 1ex;
+  // }
+
+  // ::-webkit-scrollbar-corner {
+  //   background: #fff3;
+  // }
+}
+
+canvas {
+  opacity: 0;
+  touch-action: none;
+  animation: fade-in 5s ease 1s forwards;
+}

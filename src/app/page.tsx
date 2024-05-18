@@ -10,7 +10,7 @@ import HeroComponent from "./components/HeroComponent";
 import AboutComponent from "./components/AboutComponent";
 import SkillComponent from "./components/SkillComponent";
 import PortfolioComponent from "./components/PortfolioComponent";
-import YoutubeComponent from "./components/YoutubeComponent";
+import { YoutubeComponent } from "./components/YoutubeComponent";
 import Footer from './layout/Footer';
 
 export default function Home() {
@@ -41,7 +41,9 @@ export default function Home() {
             <AboutComponent />
             <PortfolioComponent />
             <SkillComponent />
+            <section id='youtube' className="h-full md:h-screen">
             <YoutubeComponent />
+            </section>
             <Footer />
           </>
       )

@@ -2,6 +2,15 @@
   "name": "portfolio-nextjs",
   "version": "0.1.0",
   "private": true,
+  "description": "Surya Frontend Developer Portfolio",
+  "keywords": [
+    "portfolio",
+    "landing-page",
+    "frontend-developer",
+    "programmer",
+    "developer",
+    "website"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",

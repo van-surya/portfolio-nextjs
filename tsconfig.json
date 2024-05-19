@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,9 +22,19 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/YoutubeComponent.js", "src/app/components/CardYoutube.js", "src/app/components/Card.js", , "src/app/components/Rig.js""src/app/components/Banner.js", "src/app/utils/gallery.tsx"],
-  "exclude": ["node_modules"]
+  // "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/YoutubeComponent.js", "src/app/components/CardYoutube.js", "src/app/components/Card.js", , "src/app/components/Rig.js""src/app/components/Banner.js", "src/app/utils/gallery.tsx"],
+   "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+, "src/app/sections/Text.jsx"  ]
 }

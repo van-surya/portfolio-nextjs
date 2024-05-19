@@ -63,7 +63,7 @@ function Card({ url, ...props }) {
 
 function Banner(props) {
     const ref = useRef()
-    const texture = useTexture('/assets/images/hero.png')
+    const texture = useTexture('/assets/line.png')
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping
     const scroll = useScroll()
     useFrame((state, delta) => {

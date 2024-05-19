@@ -64,7 +64,7 @@ export default function Header() {
     }, [setActiveSection]);
 
     return (
-        <motion.header className="w-full sticky top-[22px] hidden md:block"
+        <motion.header className="w-full fixed top-[22px] hidden md:block"
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
         > 

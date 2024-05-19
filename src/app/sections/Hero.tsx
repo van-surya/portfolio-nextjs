@@ -54,7 +54,6 @@ export default function Hero() {
             <div className="relative container mx-auto my-auto px-[1rem] md:px-[2rem] 2xl:px-[3rem] h-[100vh]">
                 <div className="h-[100%]">
                     <Canvas shadows camera={{ position: [0, 0, 8], fov: 42 }}>
-                        {/* <color attach="background" args={["#000"]} /> */}
                         <Experience />
                     </Canvas>
                 </div>

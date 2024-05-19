@@ -9,7 +9,7 @@ import Header from './layout/Header';
 import About from './sections/About';
 import Hero from "./sections/Hero";
 import Skill from "./sections/Skill";
-import Portfolio from "./sections/Portfolio";
+import Experience from "./sections/Experience";
 import Gallery from "./sections/Gallery";
 import Footer from './layout/Footer';
 
@@ -39,7 +39,7 @@ export default function Home() {
             <Header />
             <Hero />
             <About />
-            <Portfolio />
+            <Experience />
             <Skill />
             <Gallery />
             <Footer />

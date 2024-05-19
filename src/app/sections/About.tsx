@@ -71,26 +71,32 @@ export default function About() {
     return (
         <section
             id="about"
-            ref={ref} className=""
+            ref={ref} className="py-[5.5rem]"
         >
-            <div className="container">
-                <motion.h2 className="text-[15rem]  uppercase font-medium text-neutral-900 dark:text-neutral-300 lg:mt-[3rem]"
+            <div className="container mx-auto px-[1rem] md:px-[2rem] 2xl:px-[3rem]">
+                <motion.h2 className="text-[15rem] leading-[15rem]
+                uppercase font-medium text-neutral-900 dark:text-neutral-300 lg:mt-[3rem]"
                     initial={{ opacity: 0, y: 120 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{
                         duration: ".5",
                         delay: .5
                     }}
-                >About ME</motion.h2>
-                <motion.p className="text-[1rem] md:text-[1.25rem] lg:text-[1.4rem] font-thin text-neutral-700 dark:text-neutral-500"
+                >About</motion.h2>
+                <motion.div className="
+                flex flex-row"
                     initial={{ opacity: 0, y: 120 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{
-                        duration: ".7",
+                        duration: ".5",
                         delay: .5
-                    }} >
-                    I`am <strong className="text-primary font-semibold"> Surya</strong>, a seasoned frontend developer with three years of experience crafting stunning <strong className="text-primary font-semibold">digital experiences</strong>. With a keen eye for detail and a passion for user-centric design, I specialize in creating seamless frontend solutions that captivate and delight users. Let`s embark on a <strong className="text-primary font-semibold">journey</strong> where every click leads to an enhanced user interface and a memorable digital journey.</motion.p>
-
+                    }}>
+                    <h2 className="text-[15rem] leading-[12rem]
+                uppercase font-medium text-neutral-900 dark:text-neutral-300 lg:mt-[-3rem] me-[2rem]">ME</h2>
+                    <p className="mt-auto text-[1rem] md:text-[1.125rem]
+                    lg:text-[1.375rem] font-thin text-neutral-700 dark:text-neutral-500">
+                        I`am <strong className="text-primary font-semibold"> Surya</strong>, a seasoned frontend developer with three years of experience crafting stunning <strong className="text-primary font-semibold">digital experiences</strong>. With a keen eye for detail and a passion for user-centric design, I specialize in creating seamless frontend solutions that captivate and delight users. Let`s embark on a <strong className="text-primary font-semibold">journey</strong> where every click leads to an enhanced user interface and a memorable digital journey.</p>
+                </motion.div>
             </div>
         </section >
     );

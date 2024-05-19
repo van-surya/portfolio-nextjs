@@ -36,5 +36,5 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/sections/Text.jsx"  ]
+, "src/app/sections/Text.jsx", "src/app/sections/Portfolio.jsx", "src/app/components/project/index.jsx"  ]
 }

@@ -40,7 +40,7 @@ export function Avatar(props: AvatarProps) {
     useFrame(({ mouse }) => {
         const { x, y } = mouse;
         const maxRotationX = Math.PI / 20;
-        const maxRotationY = Math.PI / 20;
+        const maxRotationY = Math.PI / 60;
 
         targetRotation.current = {
             x: THREE.MathUtils.lerp(-maxRotationX, maxRotationX, (y + 1) / 2),
